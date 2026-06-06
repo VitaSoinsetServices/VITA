@@ -1,0 +1,3209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITA Services à Domicile | Home Care</title>
+    <link rel="icon" type="image/png" href="Brand_Assets/Hero_Favicon.png">
+    <link rel="apple-touch-icon" href="Brand_Assets/Hero_Favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal-dark: #04202a;
+            --teal: #006881;
+            --teal-light: #d3e1e9;
+            --teal-lighter: #eaf2f7;
+            --blue-light: #7db7d8;
+            --vita-green: #5cbf3a;
+            --vita-green-dark: #48a82e;
+            --vita-red: #e8383a;
+            --white: #ffffff;
+            --neutral: #5a7380;
+            --shadow-sm: 0 2px 8px rgba(4,32,42,0.07), 0 1px 2px rgba(4,32,42,0.04);
+            --shadow-md: 0 8px 32px rgba(4,32,42,0.10), 0 2px 8px rgba(4,32,42,0.06);
+            --shadow-lg: 0 20px 60px rgba(4,32,42,0.15), 0 4px 16px rgba(4,32,42,0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Figtree', Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--teal-dark);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* --- LANGUAGE --- */
+        [data-lang] { display: none; }
+        [data-lang].active { display: revert; }
+        span[data-lang].active { display: inline; }
+
+        /* --- ANNOUNCEMENT BAR --- */
+        .ann-bar {
+            background: var(--teal-dark);
+            color: rgba(255,255,255,0.88);
+            text-align: center;
+            padding: 0.55rem 1rem;
+            font-size: 0.825rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        /* --- NAV --- */
+        .main-nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--teal-light);
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            transition: box-shadow 0.3s ease;
+        }
+        .main-nav.scrolled { box-shadow: 0 4px 24px rgba(4,32,42,0.10); }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            height: 120px;
+            gap: 2rem;
+        }
+
+        .nav-logo {
+            flex-shrink: 0;
+            display: block;
+            width: 160px;
+            height: 135px;
+            overflow: hidden;
+            position: relative;
+        }
+        .nav-logo img {
+            position: absolute;
+            height: 680px;
+            width: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -16%);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.25rem;
+            flex: 1;
+        }
+
+        .nav-links a {
+            color: var(--teal-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .nav-links a:hover { background: var(--teal-lighter); color: var(--teal); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .lang-switcher { display: flex; gap: 0.2rem; }
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--teal-light);
+            color: var(--neutral);
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.22rem 0.55rem;
+            border-radius: 5px;
+            cursor: pointer;
+            letter-spacing: 0.04em;
+            transition: all 0.18s ease;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--teal);
+            color: var(--white);
+            border-color: var(--teal);
+        }
+
+        .nav-phone {
+            color: var(--teal);
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            white-space: nowrap;
+        }
+        .nav-phone:hover { color: var(--teal-dark); }
+
+        .btn-primary {
+            background: var(--vita-green);
+            color: var(--white);
+            border: none;
+            padding: 0.65rem 1.35rem;
+            border-radius: 10px;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            white-space: nowrap;
+            box-shadow: 0 3px 12px rgba(92,191,58,0.32);
+            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        }
+        .btn-primary:hover {
+            background: var(--vita-green-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(92,191,58,0.42);
+        }
+        .btn-primary:active { transform: translateY(0); }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--teal-dark);
+            border: 2px solid var(--teal);
+            padding: 0.63rem 1.35rem;
+            border-radius: 10px;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .btn-ghost:hover {
+            background: var(--teal);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 560px;
+        }
+
+        .hero-text {
+            background: var(--teal-lighter);
+            padding: 4rem 3.5rem 4rem 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(92,191,58,0.15);
+            color: var(--vita-green-dark);
+            border: 1px solid rgba(92,191,58,0.30);
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+            width: fit-content;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--vita-green);
+            flex-shrink: 0;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 3.2vw, 2.9rem);
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--teal-dark);
+            letter-spacing: -0.04em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-title .highlight {
+            color: var(--teal);
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--neutral);
+            margin-bottom: 2rem;
+            max-width: 460px;
+        }
+
+        .hero-ctas { display: flex; gap: 0.875rem; flex-wrap: wrap; }
+
+        .hero-media {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-media img,
+        .hero-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .hero-media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,104,129,0.10) 0%, transparent 50%),
+                        linear-gradient(to top, rgba(4,32,42,0.50) 0%, transparent 40%);
+        }
+
+        /* Subtle noise texture overlay */
+        .hero-media::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            z-index: 1;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .hero-stat {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            z-index: 2;
+        }
+
+        .hero-stat-item {
+            background: var(--teal-dark);
+            color: var(--white);
+            border-radius: 14px;
+            padding: 0.9rem 1.1rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            min-width: 105px;
+        }
+
+        .hero-stat .num {
+            font-size: 1.55rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--vita-green);
+            letter-spacing: -0.03em;
+        }
+
+        .hero-stat .lbl {
+            font-size: 0.6rem;
+            font-weight: 600;
+            opacity: 0.78;
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- STATS BAR --- */
+        .stats-bar {
+            background: var(--teal);
+            padding: 1.75rem 0;
+        }
+
+        .stats-bar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .stat-item { text-align: center; color: var(--white); }
+        .stat-num {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            display: block;
+            line-height: 1;
+        }
+        .stat-lbl {
+            font-size: 0.78rem;
+            font-weight: 500;
+            opacity: 0.8;
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- SECTIONS --- */
+        .sec { padding: 5rem 0; }
+        .sec-alt { background: var(--teal-lighter); }
+
+        .wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .sec-tag {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--teal);
+            margin-bottom: 0.6rem;
+        }
+
+        .sec-h2 {
+            font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+            font-weight: 900;
+            line-height: 1.12;
+            letter-spacing: -0.035em;
+            color: var(--teal-dark);
+            margin-bottom: 0.9rem;
+        }
+
+        .sec-sub {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--neutral);
+            max-width: 560px;
+        }
+
+        /* --- SERVICES --- */
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-top: 2.75rem;
+        }
+
+        .svc-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .svc-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lg); }
+
+        .svc-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .svc-body { padding: 1.25rem 1.35rem 1.5rem; }
+
+        .svc-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--teal-dark);
+            margin-bottom: 0.45rem;
+            min-height: 2.6em;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .svc-desc {
+            font-size: 0.85rem;
+            color: var(--neutral);
+            line-height: 1.65;
+            margin-bottom: 0.85rem;
+        }
+
+        .svc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--teal);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: gap 0.2s ease, color 0.2s ease;
+        }
+        .svc-link:hover { gap: 0.55rem; color: var(--vita-green-dark); }
+
+        /* --- VALUES --- */
+        .vals-hdr { text-align: center; margin-bottom: 3rem; }
+        .vals-hdr .sec-sub { margin: 0 auto; }
+
+        .vals-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .val-card {
+            text-align: center;
+            padding: 2.25rem 1.5rem;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .val-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+        .val-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: var(--teal-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 2rem;
+        }
+
+        .val-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--teal-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .val-desc {
+            font-size: 0.85rem;
+            color: var(--neutral);
+            line-height: 1.65;
+        }
+
+        /* --- STORY SECTION (dark) --- */
+        .story-sec {
+            background: var(--teal-dark);
+            color: var(--white);
+        }
+
+        .story-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .story-img-wrap {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .story-img-wrap img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,104,129,0.5) 100%);
+        }
+
+        .story-tag {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--vita-green);
+            margin-bottom: 0.7rem;
+        }
+
+        .story-h2 {
+            font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+            font-weight: 900;
+            line-height: 1.18;
+            letter-spacing: -0.03em;
+            color: var(--white);
+            margin-bottom: 1.25rem;
+        }
+
+        .story-p {
+            font-size: 0.975rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 1.1rem;
+        }
+
+        .story-quote-name { color: var(--blue-light); font-weight: 700; }
+
+        /* --- COVERAGE --- */
+        .cov-inner {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .cov-map {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .cov-map img { width: 100%; display: block; }
+
+        .cov-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .cov-stat {
+            padding: 1.35rem 1.25rem;
+            background: var(--white);
+            border-radius: 14px;
+            border-left: 4px solid var(--vita-green);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cov-stat .num {
+            font-size: 1.75rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--teal-dark);
+        }
+
+        .cov-stat .lbl {
+            font-size: 0.78rem;
+            color: var(--neutral);
+            margin-top: 0.15rem;
+        }
+
+        /* --- HEAL AT HOME --- */
+        .heal-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .heal-img-wrap {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+        .heal-img-wrap img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .heal-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(4,32,42,0.45) 0%, transparent 50%);
+        }
+
+        .heal-list {
+            list-style: none;
+            margin-top: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .heal-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--neutral);
+            line-height: 1.55;
+        }
+
+        .check-icon {
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            border-radius: 50%;
+            background: var(--vita-green);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 900;
+            margin-top: 1px;
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testi-hdr { text-align: center; margin-bottom: 3rem; }
+        .testi-hdr .sec-sub { margin: 0 auto; }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .testi-card {
+            padding: 1.75rem;
+            background: var(--teal-lighter);
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testi-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+        .testi-stars { color: #f4a01e; font-size: 0.85rem; margin-bottom: 0.6rem; }
+
+        .testi-bigquote {
+            font-size: 3rem;
+            color: var(--vita-green);
+            line-height: 0.8;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .testi-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--neutral);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+
+        .testi-av {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .testi-av img { width: 100%; height: 100%; object-fit: cover; }
+
+        .testi-name { font-weight: 800; font-size: 0.875rem; color: var(--teal-dark); }
+        .testi-role { font-size: 0.78rem; color: var(--neutral); }
+
+        /* --- JOIN TEAM --- */
+        .join-sec { background: var(--teal); color: var(--white); }
+
+        .join-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .join-h2 {
+            font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+            font-weight: 900;
+            line-height: 1.12;
+            letter-spacing: -0.035em;
+            color: var(--white);
+            margin-bottom: 0.9rem;
+        }
+
+        .join-p {
+            font-size: 0.975rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.75rem;
+        }
+
+        .perks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .perk {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .perk-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+        .join-img-wrap {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.30);
+        }
+        .join-img-wrap img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- CONTACT CTA --- */
+        .cta-sec {
+            background: var(--teal-lighter);
+            text-align: center;
+            padding: 5rem 0;
+        }
+        .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--teal-dark);
+            color: var(--white);
+            padding: 4.5rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo-box {
+            display: block;
+            width: 100px;
+            height: 95px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 1.25rem;
+            background: #fff;
+            border-radius: 14px;
+            padding: 6px;
+        }
+        .footer-logo-box img {
+            position: absolute;
+            height: 300px;
+            width: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -18%);
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.55);
+            max-width: 250px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1.25rem;
+        }
+
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .footer-socials a:hover { background: var(--vita-green); color: var(--white); }
+
+        .foot-col-title {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1rem;
+        }
+
+        .foot-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .foot-links a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+        .foot-links a:hover { color: var(--vita-green); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .footer-bottom p, .footer-bottom a {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.35);
+        }
+
+        .footer-bottom a { text-decoration: none; margin-left: 1rem; }
+        .footer-bottom a:hover { color: rgba(255,255,255,0.65); }
+
+        /* --- REVEAL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1100px) {
+            .svc-grid { grid-template-columns: repeat(2, 1fr); }
+            .vals-grid { grid-template-columns: repeat(2, 1fr); }
+            .testi-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-text { padding: 3rem 2rem; }
+            .hero-media { height: 340px; }
+            .story-inner, .cov-inner, .heal-inner, .join-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .cov-stats { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .svc-grid, .vals-grid, .testi-grid, .footer-grid { grid-template-columns: 1fr; }
+            .cov-stats { grid-template-columns: 1fr; }
+            .perks-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 1.75rem; }
+            .hero-stat { grid-template-columns: 1fr 1fr; right: 0.75rem; bottom: 0.75rem; }
+            .hero-stat-item { min-width: 80px; padding: 0.7rem 0.75rem; }
+        }
+
+        /* --- COOKIE BANNER --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9998;
+            background: var(--teal-dark);
+            border-top: 3px solid var(--vita-green);
+            box-shadow: 0 -8px 40px rgba(4,32,42,0.32);
+            transform: translateY(100%);
+            transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+        .cookie-banner.show { transform: translateY(0); }
+
+        .cookie-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .cookie-text { flex: 1; min-width: 260px; }
+
+        .cookie-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+
+        .cookie-desc {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.68);
+        }
+
+        .cookie-desc a {
+            color: var(--vita-green);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .cookie-desc a:hover { color: #7edb55; }
+
+        .cookie-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-cookie-essential {
+            background: transparent;
+            color: rgba(255,255,255,0.78);
+            border: 1.5px solid rgba(255,255,255,0.28);
+            padding: 0.6rem 1.35rem;
+            border-radius: 10px;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+        }
+        .btn-cookie-essential:hover {
+            border-color: rgba(255,255,255,0.65);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+        .btn-cookie-essential:active { transform: translateY(0); }
+
+        .btn-cookie-accept {
+            background: var(--vita-green);
+            color: var(--white);
+            border: none;
+            padding: 0.62rem 1.5rem;
+            border-radius: 10px;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.84rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 3px 12px rgba(92,191,58,0.35);
+            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        }
+        .btn-cookie-accept:hover {
+            background: var(--vita-green-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(92,191,58,0.45);
+        }
+        .btn-cookie-accept:active { transform: translateY(0); }
+
+        .cookie-law-note {
+            width: 100%;
+            padding-top: 0.6rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.35);
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 640px) {
+            .cookie-inner { padding: 1rem; gap: 1rem; }
+            .cookie-actions { width: 100%; }
+            .btn-cookie-essential, .btn-cookie-accept { flex: 1; text-align: center; }
+            .cookie-icon { display: none; }
+        }
+
+        /* --- CARE REQUEST MODAL --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(4,32,42,0.72);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal-overlay.open { display: flex; }
+
+        .modal-box {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            max-width: 540px;
+            width: 100%;
+            box-shadow: 0 40px 100px rgba(4,32,42,0.28);
+            position: relative;
+            max-height: 92vh;
+            overflow-y: auto;
+            animation: modalIn 0.28s cubic-bezier(0.34,1.56,0.64,1) both;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(24px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .doc-modal-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 0;
+            max-width: 780px;
+            width: 100%;
+            box-shadow: 0 40px 100px rgba(4,32,42,0.28);
+            position: relative;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            animation: modalIn 0.28s cubic-bezier(0.34,1.56,0.64,1) both;
+            overflow: hidden;
+        }
+        .doc-modal-header {
+            background: var(--teal-dark);
+            color: var(--white);
+            padding: 2rem 2.5rem 1.5rem;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .doc-modal-header .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+        }
+        .doc-modal-header .modal-close:hover { background: rgba(255,255,255,0.28); }
+        .doc-modal-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin: 0 0 0.3rem;
+            line-height: 1.2;
+            padding-right: 3rem;
+        }
+        .doc-modal-subtitle {
+            font-size: 0.82rem;
+            opacity: 0.7;
+            margin: 0;
+        }
+        .doc-modal-body {
+            padding: 2rem 2.5rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .doc-modal-body p { font-size: 0.9rem; line-height: 1.7; color: #333; margin-bottom: 1rem; }
+        .doc-modal-body h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--teal-dark);
+            margin: 1.75rem 0 0.5rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1.5px solid var(--teal-light);
+        }
+        .doc-modal-body h3:first-child { margin-top: 0; }
+        .doc-modal-body ul {
+            margin: 0.5rem 0 1rem 1.2rem;
+            padding: 0;
+        }
+        .doc-modal-body ul li {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: #333;
+            margin-bottom: 0.4rem;
+        }
+        .doc-modal-body .doc-notice {
+            background: #fff3cd;
+            border-left: 4px solid #f0a500;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin: 1.25rem 0;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #5a3e00;
+        }
+        .doc-modal-body .doc-contact {
+            background: var(--teal-lighter, #d3e1e9);
+            border-radius: 10px;
+            padding: 1.1rem 1.4rem;
+            margin-top: 1.5rem;
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: var(--teal-dark);
+        }
+        .doc-modal-body .doc-contact strong { font-weight: 800; }
+        .doc-modal-footer {
+            padding: 1.25rem 2.5rem;
+            border-top: 1px solid #e8eef2;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .doc-modal-footer button {
+            background: var(--teal-dark);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.18s ease, transform 0.15s ease;
+        }
+        .doc-modal-footer button:hover { background: var(--teal); transform: translateY(-1px); }
+
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: var(--teal-lighter);
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--teal-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.18s ease, transform 0.15s ease;
+            font-weight: 700;
+        }
+        .modal-close:hover { background: var(--teal-light); transform: scale(1.1); }
+
+        .modal-field { margin-bottom: 1rem; }
+        .modal-field label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--teal-dark);
+            margin-bottom: 0.4rem;
+        }
+        .modal-field input,
+        .modal-field textarea,
+        .modal-field select {
+            width: 100%;
+            padding: 0.68rem 0.95rem;
+            border: 1.5px solid var(--teal-light);
+            border-radius: 10px;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            color: var(--teal-dark);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            background: var(--white);
+        }
+        .modal-field input:focus,
+        .modal-field textarea:focus,
+        .modal-field select:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(0,104,129,0.12);
+        }
+        .modal-field textarea { resize: vertical; }
+        .modal-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23006881'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.25rem;
+            padding-right: 2.5rem;
+            cursor: pointer;
+        }
+        .modal-field select option { color: var(--teal-dark); }
+        .modal-file-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.7rem 1rem;
+            border: 1.5px dashed var(--teal-light);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            background: #f8fbfd;
+            font-size: 0.875rem;
+            color: var(--teal);
+            font-weight: 600;
+        }
+        .modal-file-label:hover { border-color: var(--teal); background: #eef5f8; }
+        .modal-file-label svg { flex-shrink: 0; }
+        .modal-file-input { display: none; }
+        .modal-file-name {
+            font-size: 0.8rem;
+            color: var(--neutral);
+            margin-top: 0.35rem;
+            min-height: 1.1rem;
+        }
+        .modal-file-name.has-file { color: var(--vita-green); font-weight: 600; }
+        .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        .modal-success {
+            display: none;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+        .modal-success .success-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: rgba(92,191,58,0.15);
+            color: var(--vita-green-dark);
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="ann-bar">
+    <span data-lang="en" class="active">Say goodbye to loneliness and boredom. Compassionate care, right at home.</span>
+    <span data-lang="fr">Dites adieu à la solitude et à l'ennui ! Des soins bienveillants, directement chez vous.</span>
+    <span data-lang="es">Diga adios a la soledad y al aburrimiento. Cuidado compasivo, en su propio hogar.</span>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <img src="Brand_Assets/LOGO.png" alt="VITA Services a Domicile">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#services">
+                <span data-lang="en" class="active">Services</span>
+                <span data-lang="fr">Services</span>
+                <span data-lang="es">Servicios</span>
+            </a></li>
+            <li><a href="#about">
+                <span data-lang="en" class="active">About</span>
+                <span data-lang="fr">À propos</span>
+                <span data-lang="es">Nosotros</span>
+            </a></li>
+            <li><a href="#patient-voices">
+                <span data-lang="en" class="active">Patient Stories</span>
+                <span data-lang="fr">Témoignages</span>
+                <span data-lang="es">Historias</span>
+            </a></li>
+            <li><a href="#careers">
+                <span data-lang="en" class="active">Careers</span>
+                <span data-lang="fr">Carrières</span>
+                <span data-lang="es">Carreras</span>
+            </a></li>
+            <li><a href="#contact">
+                <span data-lang="en" class="active">Contact</span>
+                <span data-lang="fr">Contact</span>
+                <span data-lang="es">Contacto</span>
+            </a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="lang-switcher">
+                <button type="button" class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button type="button" class="lang-btn" onclick="setLang('fr')">FR</button>
+                <button type="button" class="lang-btn" onclick="setLang('es')">ES</button>
+            </div>
+            <a href="tel:5149176167" class="nav-phone">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                514-917-6167
+            </a>
+            <a href="#" onclick="openCareModal(); return false;" class="btn-primary">
+                <span data-lang="en" class="active">Request Care</span>
+                <span data-lang="fr">Demander des soins</span>
+                <span data-lang="es">Solicitar atencion</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <div class="hero-badge">
+            <span data-lang="en" class="active">Trusted Independent Home Care Provider</span>
+            <span data-lang="fr">Prestataire indépendant de soins à domicile</span>
+            <span data-lang="es">Proveedor independiente de cuidados en el hogar</span>
+        </div>
+        <h1 class="hero-title">
+            <span data-lang="en" class="active">Compassionate care,<br><span class="highlight">right where</span><br>you call home.</span>
+            <span data-lang="fr">Des soins bienveillants,<br><span class="highlight">là où vous</span><br>vous sentez chez vous.</span>
+            <span data-lang="es">Cuidado compasivo,<br><span class="highlight">donde usted</span><br>llama hogar.</span>
+        </h1>
+        <p class="hero-desc">
+            <span data-lang="en" class="active">It is possible to improve your quality of life and well-being with the support of a trusted VITA Services professional. Book your free consultation today and discover how we can help you or a loved one.</span>
+            <span data-lang="fr">Il est possible d'améliorer votre qualité de vie et votre bien-être en étant accompagné par un professionnel de confiance. Réservez dès aujourd'hui votre consultation gratuite pour découvrir comment nous pouvons vous assister.</span>
+            <span data-lang="es">Es posible mejorar su calidad de vida y bienestar con el apoyo de un profesional de confianza de VITA Services. Reserve hoy su consulta gratuita y descubra como podemos ayudarle a usted o a un ser querido.</span>
+        </p>
+        <div class="hero-ctas">
+            <a href="#services" class="btn-primary">
+                <span data-lang="en" class="active">Explore Services</span>
+                <span data-lang="fr">Nos services</span>
+                <span data-lang="es">Nuestros servicios</span>
+            </a>
+            <a href="#patient-voices" class="btn-ghost">
+                <span data-lang="en" class="active">Patient Stories</span>
+                <span data-lang="fr">Témoignages</span>
+                <span data-lang="es">Historias</span>
+            </a>
+        </div>
+    </div>
+    <div class="hero-media">
+        <video id="heroVideo" autoplay muted playsinline>
+            <source src="Marche de Louest_walker_video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-stat">
+            <div class="hero-stat-item">
+                <div class="num">3+</div>
+                <div class="lbl">
+                    <span data-lang="en" class="active">Years of Service</span>
+                    <span data-lang="fr">Ans de service</span>
+                    <span data-lang="es">Anos de servicio</span>
+                </div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="num">10+</div>
+                <div class="lbl">
+                    <span data-lang="en" class="active">Certified Caregivers</span>
+                    <span data-lang="fr">Soignants certifiés</span>
+                    <span data-lang="es">Cuidadores certificados</span>
+                </div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="num">14</div>
+                <div class="lbl">
+                    <span data-lang="en" class="active">Service Regions</span>
+                    <span data-lang="fr">Régions de service</span>
+                    <span data-lang="es">Regiones de servicio</span>
+                </div>
+            </div>
+            <div class="hero-stat-item">
+                <div class="num">98%</div>
+                <div class="lbl">
+                    <span data-lang="en" class="active">Patient Satisfaction</span>
+                    <span data-lang="fr">Satisfaction patient</span>
+                    <span data-lang="es">Satisfaccion del paciente</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="stats-bar-inner">
+        <div class="stat-item">
+            <span class="stat-num">3+</span>
+            <span class="stat-lbl">
+                <span data-lang="en" class="active">Years of Service</span>
+                <span data-lang="fr">Ans de service</span>
+                <span data-lang="es">Anos de servicio</span>
+            </span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">10+</span>
+            <span class="stat-lbl">
+                <span data-lang="en" class="active">Certified Caregivers</span>
+                <span data-lang="fr">Soignants certifiés</span>
+                <span data-lang="es">Cuidadores certificados</span>
+            </span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">14</span>
+            <span class="stat-lbl">
+                <span data-lang="en" class="active">Service Regions</span>
+                <span data-lang="fr">Régions de service</span>
+                <span data-lang="es">Regiones de servicio</span>
+            </span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">98%</span>
+            <span class="stat-lbl">
+                <span data-lang="en" class="active">Patient Satisfaction</span>
+                <span data-lang="fr">Satisfaction patient</span>
+                <span data-lang="es">Satisfaccion del paciente</span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="sec">
+    <div class="wrap">
+        <p class="sec-tag">
+            <span data-lang="en" class="active">What we offer</span>
+            <span data-lang="fr">Ce que nous offrons</span>
+            <span data-lang="es">Lo que ofrecemos</span>
+        </p>
+        <h2 class="sec-h2">
+            <span data-lang="en" class="active">Care services tailored to every need</span>
+            <span data-lang="fr">Des services adaptés à chaque besoin</span>
+            <span data-lang="es">Servicios adaptados a cada necesidad</span>
+        </h2>
+        <p class="sec-sub">
+            <span data-lang="en" class="active">From skilled nursing to companion care, VITA offers a comprehensive suite of home health services designed around you.</span>
+            <span data-lang="fr">Des soins infirmiers spécialisés aux soins d'accompagnement, VITA offre une gamme complète de services de santé à domicile conçus autour de vous.</span>
+            <span data-lang="es">Desde enfermeria especializada hasta cuidado de compania, VITA ofrece una gama completa de servicios de salud en el hogar disenados alrededor de usted.</span>
+        </p>
+        <div class="svc-grid">
+
+            <div class="svc-card reveal">
+                <img class="svc-img" src="https://placehold.co/420x200/d3e1e9/04202a?text=Personal+Care" alt="Personal Care">
+                <div class="svc-body">
+                    <h3 class="svc-title">
+                        <span data-lang="en" class="active">Personal Care</span>
+                        <span data-lang="fr">Soins personnels</span>
+                        <span data-lang="es">Cuidado personal</span>
+                    </h3>
+                    <p class="svc-desc">
+                        <span data-lang="en" class="active">Assistance with daily activities: bathing, grooming, dressing, and mobility support in the comfort of home.</span>
+                        <span data-lang="fr">Aide aux activités quotidiennes : bain, toilette, habillage et soutien à la mobilité dans le confort de votre domicile.</span>
+                        <span data-lang="es">Asistencia con actividades diarias: bano, higiene personal, vestimenta y apoyo de movilidad en su hogar.</span>
+                    </p>
+                    <a href="#" class="svc-link">
+                        <span data-lang="en" class="active">Learn more</span>
+                        <span data-lang="fr">En savoir plus</span>
+                        <span data-lang="es">Saber mas</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="svc-card reveal">
+                <img class="svc-img" src="https://placehold.co/420x200/7db7d8/ffffff?text=Skilled+Nursing" alt="Skilled Nursing">
+                <div class="svc-body">
+                    <h3 class="svc-title">
+                        <span data-lang="en" class="active">Skilled Nursing</span>
+                        <span data-lang="fr">Soins infirmiers</span>
+                        <span data-lang="es">Enfermeria especializada</span>
+                    </h3>
+                    <p class="svc-desc">
+                        <span data-lang="en" class="active">Licensed nurses providing medical assessments, wound care, medication management and ongoing health monitoring.</span>
+                        <span data-lang="fr">Infirmiers autorisés fournissant des évaluations médicales, soins de plaies, gestion des médicaments et surveillance de santé.</span>
+                        <span data-lang="es">Enfermeros licenciados que brindan evaluaciones medicas, cuidado de heridas y monitoreo continuo de salud.</span>
+                    </p>
+                    <a href="#" class="svc-link">
+                        <span data-lang="en" class="active">Learn more</span>
+                        <span data-lang="fr">En savoir plus</span>
+                        <span data-lang="es">Saber mas</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="svc-card reveal">
+                <img class="svc-img" src="https://placehold.co/420x200/5cbf3a/ffffff?text=Companionship" alt="Companionship">
+                <div class="svc-body">
+                    <h3 class="svc-title">
+                        <span data-lang="en" class="active">Companionship</span>
+                        <span data-lang="fr">Accompagnement</span>
+                        <span data-lang="es">Compania</span>
+                    </h3>
+                    <p class="svc-desc">
+                        <span data-lang="en" class="active">Building a solid relationship with someone strengthens confidence. Your companion becomes a trusted partner helping with daily tasks, meal prep, grocery lists, hobbies, and special events.</span>
+                        <span data-lang="fr">Cultiver une relation solide et participer à des interactions sociales renforce la confiance. Votre accompagnateur devient votre partenaire au quotidien : tâches ménagères, préparation des repas, loisirs et organisation d'événements spéciaux.</span>
+                        <span data-lang="es">Cultivar una relacion solida y participar en interacciones sociales fortalece la confianza. Su acompanante se convierte en su socio diario: tareas del hogar, preparacion de comidas, pasatiempos y organizacion de eventos especiales.</span>
+                    </p>
+                    <a href="#" class="svc-link">
+                        <span data-lang="en" class="active">Learn more</span>
+                        <span data-lang="fr">En savoir plus</span>
+                        <span data-lang="es">Saber mas</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="svc-card reveal">
+                <img class="svc-img" src="https://placehold.co/420x200/04202a/d3e1e9?text=Home+Care+Services" alt="Home Care Services">
+                <div class="svc-body">
+                    <h3 class="svc-title">
+                        <span data-lang="en" class="active">Home Care Services</span>
+                        <span data-lang="fr">Services d'aide à domicile</span>
+                        <span data-lang="es">Servicios de atencion en el hogar</span>
+                    </h3>
+                    <p class="svc-desc">
+                        <span data-lang="en" class="active">Our home support workers provide services that suit your needs, providing you with an enjoyable living environment. Keep your habits: caregivers use your own store-bought or eco-friendly homemade cleaning products. Services include: Kitchen, Living/Dining Room, Bedrooms/Office, Corridors/Lobby, and more by request.</span>
+                        <span data-lang="fr">Nos auxiliaires à domicile offrent des services adaptés à vos besoins, vous garantissant un cadre de vie agréable. Préservez vos habitudes : les préposées utilisent vos propres produits du commerce ou vos produits ménagers écologiques maison. Services inclus : Cuisine, Salon/Salle à manger, Chambres/Bureau, Couloirs/Hall, et plus sur demande.</span>
+                        <span data-lang="es">Nuestros auxiliares de hogar ofrecen servicios adaptados a sus necesidades, brindandole un entorno de vida agradable. Mantenga sus habitos: los cuidadores utilizan sus propios productos de limpieza comerciales o ecologicos caseros. Servicios incluidos: Cocina, Sala/Comedor, Habitaciones/Oficina, Pasillos/Vestibulo, y mas a pedido.</span>
+                    </p>
+                    <a href="#" class="svc-link">
+                        <span data-lang="en" class="active">Learn more</span>
+                        <span data-lang="fr">En savoir plus</span>
+                        <span data-lang="es">Saber mas</span>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VALUES -->
+<section id="about" class="sec sec-alt">
+    <div class="wrap">
+        <div class="vals-hdr">
+            <p class="sec-tag">
+                <span data-lang="en" class="active">Our commitment</span>
+                <span data-lang="fr">Notre engagement</span>
+                <span data-lang="es">Nuestro compromiso</span>
+            </p>
+            <h2 class="sec-h2">
+                <span data-lang="en" class="active">We bring your daily dose of smiles</span>
+                <span data-lang="fr">Nous vous offrons votre dose quotidienne de sourires</span>
+                <span data-lang="es">Le ofrecemos su dosis diaria de sonrisas</span>
+            </h2>
+            <p class="sec-sub">
+                <span data-lang="en" class="active">We have meticulously selected qualified, certified, and trained team members. Our goal is to match your personality and offer a pleasant experience, peace of mind, and the assistance you need.</span>
+                <span data-lang="fr">Nous avons méticuleusement choisi les membres de notre équipe qualifiés, certifiés et formés. Notre objectif est de correspondre à votre personnalité et de vous offrir une expérience agréable, la tranquillité d'esprit et l'assistance dont vous avez besoin.</span>
+                <span data-lang="es">Hemos seleccionado meticulosamente a los miembros de nuestro equipo, calificados, certificados y capacitados. Nuestro objetivo es adaptarnos a su personalidad y ofrecerle una experiencia agradable, tranquilidad y la asistencia que necesita.</span>
+            </p>
+        </div>
+        <div class="vals-grid">
+
+            <div class="val-card reveal">
+                <div class="val-icon">💚</div>
+                <h3 class="val-title">
+                    <span data-lang="en" class="active">Compassion</span>
+                    <span data-lang="fr">Compassion</span>
+                    <span data-lang="es">Compasion</span>
+                </h3>
+                <p class="val-desc">
+                    <span data-lang="en" class="active">Every interaction is guided by genuine empathy and a deep respect for each person's journey and choices.</span>
+                    <span data-lang="fr">Chaque interaction est guidée par une véritable empathie et un profond respect du parcours et des choix de chaque personne.</span>
+                    <span data-lang="es">Cada interaccion esta guiada por empatia genuina y un profundo respeto por el camino y las decisiones de cada persona.</span>
+                </p>
+            </div>
+
+            <div class="val-card reveal">
+                <div class="val-icon">⭐</div>
+                <h3 class="val-title">
+                    <span data-lang="en" class="active">Excellence</span>
+                    <span data-lang="fr">Excellence</span>
+                    <span data-lang="es">Excelencia</span>
+                </h3>
+                <p class="val-desc">
+                    <span data-lang="en" class="active">Our caregivers maintain the highest clinical and professional standards in every service they deliver.</span>
+                    <span data-lang="fr">Nos soignants maintiennent les normes cliniques et professionnelles les plus élevées dans chaque service qu'ils fournissent.</span>
+                    <span data-lang="es">Nuestros cuidadores mantienen los mas altos estandares clinicos y profesionales en cada servicio que brindan.</span>
+                </p>
+            </div>
+
+            <div class="val-card reveal">
+                <div class="val-icon">🏡</div>
+                <h3 class="val-title">
+                    <span data-lang="en" class="active">Dignity</span>
+                    <span data-lang="fr">Dignite</span>
+                    <span data-lang="es">Dignidad</span>
+                </h3>
+                <p class="val-desc">
+                    <span data-lang="en" class="active">Our vision includes aging with love and dignity. Seniors deserve the greatest respect. We enjoy learning your hobbies, memories, and préférences to build lasting relationships.</span>
+                    <span data-lang="fr">Notre vision inclut vieillir avec amour et dignité. Les personnes âgées doivent recevoir le plus grand respect. Nous prenons plaisir à connaître vos passe-temps, vos souvenirs et vos exigences pour établir des relations durables.</span>
+                    <span data-lang="es">Nuestra vision incluye envejecer con amor y dignidad. Las personas mayores merecen el mayor respeto. Nos complace conocer sus pasatiempos, recuerdos y preferencias para establecer relaciones duraderas.</span>
+                </p>
+            </div>
+
+            <div class="val-card reveal">
+                <div class="val-icon">🤝</div>
+                <h3 class="val-title">
+                    <span data-lang="en" class="active">Community</span>
+                    <span data-lang="fr">Communaute</span>
+                    <span data-lang="es">Comunidad</span>
+                </h3>
+                <p class="val-desc">
+                    <span data-lang="en" class="active">We are deeply rooted in the communities we serve, building lasting partnerships with families and local organizations.</span>
+                    <span data-lang="fr">Nous sommes profondément ancrés dans les communautés que nous servons, bâtissant des partenariats durables avec les familles et organisations locales.</span>
+                    <span data-lang="es">Estamos profundamente arraigados en las comunidades que servimos, construyendo asociaciones duraderas con familias y organizaciones locales.</span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PATIENT STORY -->
+<section id="stories" class="sec story-sec">
+    <div class="wrap">
+        <div class="story-inner">
+            <div class="story-img-wrap reveal">
+                <img src="Marie_tremblay.png" alt="Lorena Ybarra, founder of Vita Soins et Services">
+            </div>
+            <div class="reveal">
+                <p class="story-tag">
+                    <span data-lang="en" class="active">About us</span>
+                    <span data-lang="fr">À propos de nous</span>
+                    <span data-lang="es">Nosotros</span>
+                </p>
+                <h2 class="story-h2">
+                    <span data-lang="en" class="active">Meet Lorena Ybarra, founder of Vita Soins et Services Inc.</span>
+                    <span data-lang="fr">Rencontrez notre fondatrice, Lorena Ybarra</span>
+                    <span data-lang="es">Conozca a nuestra fundadora, Lorena Ybarra</span>
+                </h2>
+                <p class="story-p">
+                    <span data-lang="en" class="active">Vita Soins et Services Inc. is a Canadian company recognized for its commitment to providing high-quality services and attentive support to seniors and their families. Our main goal is to break isolation through enriching daily interactions, reduce loneliness, and improve quality of life so seniors can remain active at home.</span>
+                    <span data-lang="fr">Vita Soins et Services Inc. est une entreprise canadienne reconnue pour son engagement à fournir des services de haute qualité et un soutien attentionné aux personnes âgées et à leurs familles. L'objectif principal est de briser l'isolement en favorisant des interactions enrichissantes au quotidien, de diminuer l'ennui et la solitude, et d'améliorer la qualité de vie. La diversité est célébrée en accueillant chaleureusement tout le monde.</span>
+                    <span data-lang="es">Vita Soins et Services Inc. es una empresa canadiense reconocida por su compromiso de brindar servicios de alta calidad y apoyo atento a los adultos mayores y sus familias. El objetivo principal es romper el aislamiento fomentando interacciones enriquecedoras dia a dia, reducir el aburrimiento y la soledad, y mejorar la calidad de vida.</span>
+                </p>
+                <p class="story-p">
+                    <span data-lang="en" class="active">Coming from an immigrant background, Lorena understands the challenges of accompanying a loved one through the process of selecting a seniors' residence or finding additional home care. Fluent in three languages, she connects easily with people from all cultures and brings deep expertise in seniors' residences, real estate, and home care.</span>
+                    <span data-lang="fr">Issue d'un milieu immigré, Lorena comprend les défis associés à l'accompagnement d'un parent dans le processus de sélection d'une résidence pour personnes âgées ou de recherche de services de soins à domicile supplémentaires. Grâce à sa maîtrise de trois langues, elle interagit facilement avec des personnes de diverses cultures et apporte une vaste expérience dans les secteurs des résidences pour personnes âgées, de l'immobilier et des soins à domicile.</span>
+                    <span data-lang="es">Proveniente de un entorno inmigrante, Lorena comprende los desafios de acompanar a un ser querido en la busqueda de una residencia para mayores o de servicios adicionales de cuidado en el hogar. Fluida en tres idiomas, conecta facilmente con personas de diversas culturas y aporta una amplia experiencia en residencias para mayores, bienes raices y cuidado a domicilio.</span>
+                </p>
+                <a href="#" onclick="openCareModal(); return false;" class="btn-primary" style="background:var(--vita-green);">
+                    <span data-lang="en" class="active">Book a free consultation</span>
+                    <span data-lang="fr">Réservez une consultation gratuite</span>
+                    <span data-lang="es">Reserve una consulta gratuita</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="sec">
+    <div class="wrap">
+        <div class="cov-inner">
+            <div class="reveal">
+                <p class="sec-tag">
+                    <span data-lang="en" class="active">Where we serve</span>
+                    <span data-lang="fr">Où nous servons</span>
+                    <span data-lang="es">Donde servimos</span>
+                </p>
+                <h2 class="sec-h2">
+                    <span data-lang="en" class="active">Helping patients heal at home across the region</span>
+                    <span data-lang="fr">Aider les patients à guérir chez eux dans toute la région</span>
+                    <span data-lang="es">Ayudando a los pacientes a sanar en casa en toda la region</span>
+                </h2>
+                <p class="sec-sub">
+                    <span data-lang="en" class="active">VITA Services operates across 5 regions, bringing professional home care within reach of every family who needs it.</span>
+                    <span data-lang="fr">VITA Services opère dans 14 régions, mettant les soins à domicile professionnels à portée de chaque famille qui en a besoin.</span>
+                    <span data-lang="es">VITA Services opera en 5 regiones, poniendo el cuidado profesional en el hogar al alcance de cada familia que lo necesita.</span>
+                </p>
+                <div class="cov-stats">
+                    <div class="cov-stat">
+                        <div class="num">3+</div>
+                        <div class="lbl">
+                            <span data-lang="en" class="active">Years of service</span>
+                            <span data-lang="fr">Ans de service</span>
+                            <span data-lang="es">Anos de servicio</span>
+                        </div>
+                    </div>
+                    <div class="cov-stat">
+                        <div class="num">10+</div>
+                        <div class="lbl">
+                            <span data-lang="en" class="active">Certified caregivers</span>
+                            <span data-lang="fr">Soignants certifiés</span>
+                            <span data-lang="es">Cuidadores certificados</span>
+                        </div>
+                    </div>
+                    <div class="cov-stat">
+                        <div class="num">14</div>
+                        <div class="lbl">
+                            <span data-lang="en" class="active">Service regions</span>
+                            <span data-lang="fr">Régions de service</span>
+                            <span data-lang="es">Regiones de servicio</span>
+                        </div>
+                    </div>
+                    <div class="cov-stat">
+                        <div class="num">98%</div>
+                        <div class="lbl">
+                            <span data-lang="en" class="active">Patient satisfaction</span>
+                            <span data-lang="fr">Satisfaction patient</span>
+                            <span data-lang="es">Satisfaccion del paciente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cov-map reveal">
+                <img src="Brand_Assets/regions montreal.png" alt="VITA service coverage map - Montreal and surrounding areas">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HEAL AT HOME -->
+<section class="sec sec-alt">
+    <div class="wrap">
+        <div class="heal-inner">
+            <div class="heal-img-wrap reveal">
+                <video id="healVideo" autoplay muted playsinline style="width:100%; height:480px; object-fit:cover; display:block;">
+                    <source src="Healing at home wheel chair.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="reveal">
+                <p class="sec-tag">
+                    <span data-lang="en" class="active">Our approach</span>
+                    <span data-lang="fr">Notre approche</span>
+                    <span data-lang="es">Nuestro enfoque</span>
+                </p>
+                <h2 class="sec-h2">
+                    <span data-lang="en" class="active">Helping patients heal at home</span>
+                    <span data-lang="fr">Aider les patients à guérir à domicile</span>
+                    <span data-lang="es">Ayudando a los pacientes a sanar en casa</span>
+                </h2>
+                <p class="sec-sub">
+                    <span data-lang="en" class="active">Research shows patients recover faster in the familiar comfort of home. VITA makes this possible through expert, coordinated care built around each person.</span>
+                    <span data-lang="fr">La recherche démontre que les patients récupèrent plus rapidement dans le confort familier de leur domicile. VITA rend cela possible grâce à des soins experts et coordonnés bâtis autour de chaque personne.</span>
+                    <span data-lang="es">La investigacion demuestra que los pacientes se recuperan mas rapido en la comodidad familiar del hogar. VITA hace esto posible a traves de cuidados expertos y coordinados construidos alrededor de cada persona.</span>
+                </p>
+                <ul class="heal-list">
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span>
+                            <span data-lang="en" class="active">Personalized care plans developed with your physician</span>
+                            <span data-lang="fr">Plans de soins personnalisés développés avec votre médecin</span>
+                            <span data-lang="es">Planes de atencion personalizados desarrollados con su medico</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span>
+                            <span data-lang="en" class="active">Consistent, trusted caregiver assignments</span>
+                            <span data-lang="fr">Affectations de soignants constantes et de confiance</span>
+                            <span data-lang="es">Asignaciones de cuidadores constantes y de confianza</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span>
+                            <span data-lang="en" class="active">Real-time health monitoring and family reporting</span>
+                            <span data-lang="fr">Surveillance de santé en temps réel et rapport à la famille</span>
+                            <span data-lang="es">Monitoreo de salud en tiempo real e informes familiares</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span>
+                            <span data-lang="en" class="active">Family portal for transparent communication</span>
+                            <span data-lang="fr">Portail familial pour une communication transparente</span>
+                            <span data-lang="es">Portal familiar para comunicacion transparente</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="check-icon">✓</span>
+                        <span>
+                            <span data-lang="en" class="active">Seamless coordination with hospitals and specialists</span>
+                            <span data-lang="fr">Coordination transparente avec les hôpitaux et spécialistes</span>
+                            <span data-lang="es">Coordinacion fluida con hospitales y especialistas</span>
+                        </span>
+                    </li>
+                </ul>
+                <a href="#" onclick="openCareModal(); return false;" class="btn-primary" style="margin-top: 2rem; display: inline-block;">
+                    <span data-lang="en" class="active">Start Care Today</span>
+                    <span data-lang="fr">Commencer les soins aujourd'hui</span>
+                    <span data-lang="es">Comenzar atencion hoy</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="patient-voices" class="sec">
+    <div class="wrap">
+        <div class="testi-hdr">
+            <p class="sec-tag">
+                <span data-lang="en" class="active">Patient voices</span>
+                <span data-lang="fr">Voix des patients</span>
+                <span data-lang="es">Voces de los pacientes</span>
+            </p>
+            <h2 class="sec-h2">
+                <span data-lang="en" class="active">See what our patients say about VITA</span>
+                <span data-lang="fr">Voyez ce que nos patients disent de VITA</span>
+                <span data-lang="es">Vea lo que nuestros pacientes dicen sobre VITA</span>
+            </h2>
+        </div>
+        <div class="testi-grid">
+
+            <div class="testi-card reveal">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-bigquote">"</div>
+                <p class="testi-text">
+                    <span data-lang="en" class="active">VITA gave my mother back her independence. Their team was professional, caring, and always there when we needed them most.</span>
+                    <span data-lang="fr">VITA a redonné à ma mère son indépendance. Leur équipe était professionnelle, attentionnée et toujours présente quand nous en avions le plus besoin.</span>
+                    <span data-lang="es">VITA le devolvio la independencia a mi madre. Su equipo era profesional, afectuoso y siempre presente cuando mas los necesitabamos.</span>
+                </p>
+                <div class="testi-author">
+                    <div class="testi-av"><img src="https://placehold.co/44x44/d3e1e9/04202a?text=J" alt="Jean-Pierre"></div>
+                    <div>
+                        <p class="testi-name">Jean-Pierre B.</p>
+                        <p class="testi-role">
+                            <span data-lang="en" class="active">Family member of patient</span>
+                            <span data-lang="fr">Membre de la famille d'un patient</span>
+                            <span data-lang="es">Familiar de paciente</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card reveal">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-bigquote">"</div>
+                <p class="testi-text">
+                    <span data-lang="en" class="active">After my stroke, I was scared about going home. VITA's nurse was there every day and helped me regain my strength. I couldn't have done it without them.</span>
+                    <span data-lang="fr">Après mon AVC, j'avais peur de rentrer chez moi. L'infirmière de VITA était là chaque jour et m'a aidé à retrouver mes forces. Je n'aurais pas pu le faire sans eux.</span>
+                    <span data-lang="es">Despues de mi accidente cerebrovascular, tenia miedo de volver a casa. La enfermera de VITA estaba alli todos los dias y me ayudo a recuperar mis fuerzas. No hubiera podido hacerlo sin ellos.</span>
+                </p>
+                <div class="testi-author">
+                    <div class="testi-av"><img src="https://placehold.co/44x44/7db7d8/ffffff?text=R" alt="Robert"></div>
+                    <div>
+                        <p class="testi-name">Robert M., 74</p>
+                        <p class="testi-role">
+                            <span data-lang="en" class="active">Stroke recovery patient</span>
+                            <span data-lang="fr">Patient en recuperation d'AVC</span>
+                            <span data-lang="es">Paciente en recuperacion de accidente cerebrovascular</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card reveal">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-bigquote">"</div>
+                <p class="testi-text">
+                    <span data-lang="en" class="active">The companion care service was a lifeline for my aunt who lives alone. She looks forward to her VITA visits every week. It has truly transformed her quality of life.</span>
+                    <span data-lang="fr">Le service d'accompagnement a été une bouée de sauvetage pour ma tante qui vit seule. Elle attend avec impatience ses visites VITA chaque semaine. Cela a vraiment transformé sa qualité de vie.</span>
+                    <span data-lang="es">El servicio de compania fue un salvavidas para mi tia que vive sola. Ella espera con ansias sus visitas de VITA cada semana. Realmente ha transformado su calidad de vida.</span>
+                </p>
+                <div class="testi-author">
+                    <div class="testi-av"><img src="https://placehold.co/44x44/5cbf3a/ffffff?text=L" alt="Luisa"></div>
+                    <div>
+                        <p class="testi-name">Luisa G.</p>
+                        <p class="testi-role">
+                            <span data-lang="en" class="active">Niece of companion care client</span>
+                            <span data-lang="fr">Nièce d'un client en soins d'accompagnement</span>
+                            <span data-lang="es">Sobrina de cliente de cuidado de compania</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- JOIN TEAM -->
+<section id="careers" class="sec join-sec">
+    <div class="wrap">
+        <div class="join-inner">
+            <div class="reveal">
+                <p class="sec-tag" style="color:rgba(255,255,255,0.5);">
+                    <span data-lang="en" class="active">Join our team</span>
+                    <span data-lang="fr">Rejoignez notre équipe</span>
+                    <span data-lang="es">Unase a nuestro equipo</span>
+                </p>
+                <h2 class="join-h2">
+                    <span data-lang="en" class="active">Build a career that changes lives, including your own.</span>
+                    <span data-lang="fr">Construisez une carrière qui change des vies, y compris la vôtre.</span>
+                    <span data-lang="es">Construya una carrera que cambie vidas, incluida la suya propia.</span>
+                </h2>
+                <p class="join-p">
+                    <span data-lang="en" class="active">VITA is always looking for compassionate, dedicated caregivers, nurses, and support staff. We offer competitive pay, flexible scheduling, and a career path built around your goals.</span>
+                    <span data-lang="fr">VITA recherche toujours des soignants, infirmiers et personnel de soutien compassionnels et dédiés. Nous offrons une rémunération compétitive, des horaires flexibles et un plan de carrière bâti autour de vos objectifs.</span>
+                    <span data-lang="es">VITA siempre busca cuidadores, enfermeros y personal de apoyo compasivos y dedicados. Ofrecemos salarios competitivos, horarios flexibles y una trayectoria profesional construida alrededor de sus objetivos.</span>
+                </p>
+                <div class="perks-grid">
+                    <div class="perk">
+                        <span class="perk-icon">💰</span>
+                        <span>
+                            <span data-lang="en" class="active">Competitive pay</span>
+                            <span data-lang="fr">Salaire compétitif</span>
+                            <span data-lang="es">Salario competitivo</span>
+                        </span>
+                    </div>
+                    <div class="perk">
+                        <span class="perk-icon">🕐</span>
+                        <span>
+                            <span data-lang="en" class="active">Flexible scheduling</span>
+                            <span data-lang="fr">Horaires flexibles</span>
+                            <span data-lang="es">Horarios flexibles</span>
+                        </span>
+                    </div>
+                    <div class="perk">
+                        <span class="perk-icon">📚</span>
+                        <span>
+                            <span data-lang="en" class="active">Free training and growth</span>
+                            <span data-lang="fr">Formation gratuite et évolution</span>
+                            <span data-lang="es">Capacitacion gratuita y crecimiento</span>
+                        </span>
+                    </div>
+                    <div class="perk">
+                        <span class="perk-icon">🌿</span>
+                        <span>
+                            <span data-lang="en" class="active">Positive Work Environment</span>
+                            <span data-lang="fr">Environnement de travail positif</span>
+                            <span data-lang="es">Ambiente de trabajo positivo</span>
+                        </span>
+                    </div>
+                </div>
+                <a href="#" onclick="openJobModal(); return false;" class="btn-primary" style="background:var(--vita-green);">
+                    <span data-lang="en" class="active">Join our team</span>
+                    <span data-lang="fr">Rejoignez notre équipe</span>
+                    <span data-lang="es">Unase a nuestro equipo</span>
+                </a>
+            </div>
+            <div class="join-img-wrap reveal">
+                <video autoplay muted loop playsinline style="width:100%; height:380px; object-fit:cover; display:block;">
+                    <source src="Join our team.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section id="contact" class="cta-sec">
+    <div class="wrap">
+        <p class="sec-tag" style="text-align:center;">
+            <span data-lang="en" class="active">Get started today</span>
+            <span data-lang="fr">Commencer aujourd'hui</span>
+            <span data-lang="es">Comience hoy mismo</span>
+        </p>
+        <h2 class="sec-h2" style="text-align:center; margin: 0 auto 0.9rem;">
+            <span data-lang="en" class="active">Ready to start your care journey?</span>
+            <span data-lang="fr">Prêt à commencer votre parcours de soins?</span>
+            <span data-lang="es">Listo para comenzar su trayectoria de atencion?</span>
+        </h2>
+        <p class="sec-sub" style="text-align:center; margin: 0 auto;">
+            <span data-lang="en" class="active">Book your free consultation today to discover how we can assist you or support a member of your family. Our coordinators are available 7 days a week.</span>
+            <span data-lang="fr">Réservez dès aujourd'hui votre consultation gratuite pour découvrir comment nous pouvons vous assister ou soutenir un membre de votre famille. Contactez-nous 7 jours sur 7.</span>
+            <span data-lang="es">Reserve hoy su consulta gratuita para descubrir como podemos asistirle a usted o apoyar a un miembro de su familia. Nuestros coordinadores estan disponibles 7 dias a la semana.</span>
+        </p>
+        <div class="cta-btns">
+            <a href="tel:5149176167" class="btn-primary" style="font-size:1rem; padding:0.85rem 2rem;">
+                <span data-lang="en" class="active">Call 514-917-6167</span>
+                <span data-lang="fr">Appeler 514-917-6167</span>
+                <span data-lang="es">Llamar 514-917-6167</span>
+            </a>
+            <button type="button" onclick="openCareModal()" class="btn-ghost" style="font-size:1rem; padding:0.85rem 2rem;">
+                <span data-lang="en" class="active">Request Care Online</span>
+                <span data-lang="fr">Demander des soins en ligne</span>
+                <span data-lang="es">Solicitar atencion en linea</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookieBanner" class="cookie-banner" role="region" aria-label="Cookie consent">
+    <div class="cookie-inner">
+        <div class="cookie-icon" aria-hidden="true">&#127850;</div>
+        <div class="cookie-text">
+            <p class="cookie-title">
+                <span data-lang="en" class="active">We value your privacy</span>
+                <span data-lang="fr">Nous respectons votre vie privée</span>
+                <span data-lang="es">Valoramos su privacidad</span>
+            </p>
+            <p class="cookie-desc">
+                <span data-lang="en" class="active">We use cookies (témoins) to improve your browsing experience and analyze site traffic. By clicking "Accept All" you give your free and informed consent. You may also choose essential cookies only. <a href="#" onclick="openDocModal('privacyModal'); return false;">Privacy Policy</a></span>
+                <span data-lang="fr">Nous utilisons des témoins (cookies) pour améliorer votre experience et analyser notre trafic. En cliquant sur "Tout accepter", vous donnez votre consentement libre et éclairé conformément a la Loi 25. Vous pouvez aussi n'autorisér que les témoins essentiels. <a href="#" onclick="openDocModal('privacyModal'); return false;">Politique de confidentialité</a></span>
+                <span data-lang="es">Utilizamos cookies para mejorar su experiencia y analizar el trafico. Al hacer clic en "Aceptar todo" usted otorga su consentimiento informado. Tambien puede autorizar solo las cookies esenciales. <a href="#" onclick="openDocModal('privacyModal'); return false;">Politica de privacidad</a></span>
+            </p>
+            <p class="cookie-law-note">
+                <span data-lang="en" class="active">Québec Law 25 (Loi modernisant des dispositions législatives en matière de protection des renseignements personnels) | PIPEDA compliant</span>
+                <span data-lang="fr">Conforme à la Loi 25 (Loi modernisant des dispositions législatives en matière de protection des renseignements personnels) | LPRPDE</span>
+                <span data-lang="es">Cumplimiento con la Ley 25 de Québec y PIPEDA</span>
+            </p>
+        </div>
+        <div class="cookie-actions">
+            <button type="button" class="btn-cookie-essential" onclick="setCookieConsent('essential')">
+                <span data-lang="en" class="active">Essential only</span>
+                <span data-lang="fr">Essentiels seulement</span>
+                <span data-lang="es">Solo esenciales</span>
+            </button>
+            <button type="button" class="btn-cookie-accept" onclick="setCookieConsent('all')">
+                <span data-lang="en" class="active">Accept all</span>
+                <span data-lang="fr">Tout accepter</span>
+                <span data-lang="es">Aceptar todo</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- CARE REQUEST MODAL -->
+<div id="careModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeCareModal()" aria-label="Close">&#x2715;</button>
+
+        <div id="modalForm">
+            <p class="sec-tag" style="margin-bottom:0.4rem;">
+                <span data-lang="en" class="active">Request Care</span>
+                <span data-lang="fr">Demander des soins</span>
+                <span data-lang="es">Solicitar atencion</span>
+            </p>
+            <h2 id="modalTitle" style="font-size:1.55rem; font-weight:900; letter-spacing:-0.03em; color:var(--teal-dark); margin-bottom:0.5rem; line-height:1.2;">
+                <span data-lang="en" class="active">We'll be in touch within 24 hours</span>
+                <span data-lang="fr">Nous vous répondrons dans les 24 heures</span>
+                <span data-lang="es">Le responderemos en 24 horas</span>
+            </h2>
+            <p style="font-size:0.875rem; color:var(--neutral); margin-bottom:1.75rem; line-height:1.6;">
+                <span data-lang="en" class="active">Fill out the form and one of our care coordinators will contact you to discuss your needs.</span>
+                <span data-lang="fr">Remplissez le formulaire et l'un de nos coordinateurs de soins vous contactera pour discuter de vos besoins.</span>
+                <span data-lang="es">Complete el formulario y uno de nuestros coordinadores se pondra en contacto para hablar sobre sus necesidades.</span>
+            </p>
+            <form id="careForm" onsubmit="submitCareForm(event)" novalidate>
+                <div class="modal-row">
+                    <div class="modal-field">
+                        <label for="mFirst">
+                            <span data-lang="en" class="active">First Name *</span>
+                            <span data-lang="fr">Prenom *</span>
+                            <span data-lang="es">Nombre *</span>
+                        </label>
+                        <input id="mFirst" type="text" required autocomplete="given-name">
+                    </div>
+                    <div class="modal-field">
+                        <label for="mLast">
+                            <span data-lang="en" class="active">Last Name *</span>
+                            <span data-lang="fr">Nom *</span>
+                            <span data-lang="es">Apellido *</span>
+                        </label>
+                        <input id="mLast" type="text" required autocomplete="family-name">
+                    </div>
+                </div>
+                <div class="modal-field">
+                    <label for="mEmail">
+                        <span data-lang="en" class="active">Email Address *</span>
+                        <span data-lang="fr">Adresse courriel *</span>
+                        <span data-lang="es">Correo electronico *</span>
+                    </label>
+                    <input id="mEmail" type="email" required autocomplete="email">
+                </div>
+                <div class="modal-field">
+                    <label for="mPhone">
+                        <span data-lang="en" class="active">Phone Number *</span>
+                        <span data-lang="fr">Numero de telephone *</span>
+                        <span data-lang="es">Numero de telefono *</span>
+                    </label>
+                    <input id="mPhone" type="tel" required autocomplete="tel">
+                </div>
+                <div class="modal-field">
+                    <label for="mBestTime">
+                        <span data-lang="en" class="active">Best Time to Reach You *</span>
+                        <span data-lang="fr">Meilleur moment pour vous joindre *</span>
+                        <span data-lang="es">Mejor horario para contactarle *</span>
+                    </label>
+                    <select id="mBestTime" required class="modal-select">
+                        <option value="">
+                            <span data-lang="en" class="active">-- Select a time --</span>
+                        </option>
+                        <option value="Morning">Morning (8am - 12pm) / Matin (8h - 12h) / Manana (8am - 12pm)</option>
+                        <option value="Afternoon">Afternoon (12pm - 5pm) / Apres-midi (12h - 17h) / Tarde (12pm - 5pm)</option>
+                    </select>
+                </div>
+                <div class="modal-field" style="margin-bottom:1.5rem;">
+                    <label for="mMsg">
+                        <span data-lang="en" class="active">Special Remarks</span>
+                        <span data-lang="fr">Remarques speciales</span>
+                        <span data-lang="es">Observaciones especiales</span>
+                    </label>
+                    <textarea id="mMsg" rows="4" placeholder="Any additional information about your care needs..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%; font-size:1rem; padding:0.9rem; border:none; cursor:pointer;">
+                    <span data-lang="en" class="active">Send My Request</span>
+                    <span data-lang="fr">Envoyer ma demande</span>
+                    <span data-lang="es">Enviar mi solicitud</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="modal-success" id="modalSuccess">
+            <div class="success-icon">&#10003;</div>
+            <h3 style="font-size:1.35rem; font-weight:900; color:var(--teal-dark); margin-bottom:0.6rem;">
+                <span data-lang="en" class="active">Request Sent!</span>
+                <span data-lang="fr">Demande envoyee!</span>
+                <span data-lang="es">Solicitud enviada!</span>
+            </h3>
+            <p style="font-size:0.9rem; color:var(--neutral); line-height:1.65; margin-bottom:1.5rem;">
+                <span data-lang="en" class="active">Your email client will open with your request pre-filled. We look forward to connecting with you soon.</span>
+                <span data-lang="fr">Votre client de messagerie s'ouvrira avec votre demande pré-remplie. Nous avons hâte de vous parler bientot.</span>
+                <span data-lang="es">Su cliente de correo se abrira con su solicitud pre-completada. Esperamos conectarnos con usted pronto.</span>
+            </p>
+            <button type="button" onclick="closeCareModal()" class="btn-primary" style="border:none; cursor:pointer;">
+                <span data-lang="en" class="active">Close</span>
+                <span data-lang="fr">Fermer</span>
+                <span data-lang="es">Cerrar</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- JOB APPLICATION MODAL -->
+<div id="jobModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="jobModalTitle">
+    <div class="modal-box" style="max-width:580px;">
+        <button class="modal-close" onclick="closeJobModal()" aria-label="Close">&#x2715;</button>
+
+        <div id="jobModalForm">
+            <p class="sec-tag" style="margin-bottom:0.4rem;">
+                <span data-lang="en" class="active">Join Our Team</span>
+                <span data-lang="fr">Rejoignez notre équipe</span>
+                <span data-lang="es">Unase a nuestro equipo</span>
+            </p>
+            <h2 id="jobModalTitle" style="font-size:1.55rem; font-weight:900; letter-spacing:-0.03em; color:var(--teal-dark); margin-bottom:0.5rem; line-height:1.2;">
+                <span data-lang="en" class="active">We'd love to hear from you</span>
+                <span data-lang="fr">Nous serions ravis de vous entendre</span>
+                <span data-lang="es">Nos encantaria saber de usted</span>
+            </h2>
+            <p style="font-size:0.875rem; color:var(--neutral); margin-bottom:1.75rem; line-height:1.6;">
+                <span data-lang="en" class="active">Fill out the form below and our team will be in touch to discuss available positions.</span>
+                <span data-lang="fr">Remplissez le formulaire ci-dessous et notre équipe vous contactera pour discuter des postes disponibles.</span>
+                <span data-lang="es">Complete el formulario a continuacion y nuestro equipo se pondra en contacto para hablar sobre los puestos disponibles.</span>
+            </p>
+
+            <form id="jobForm" onsubmit="submitJobForm(event)" novalidate>
+                <div class="modal-row">
+                    <div class="modal-field">
+                        <label for="jFirst">
+                            <span data-lang="en" class="active">First Name *</span>
+                            <span data-lang="fr">Prenom *</span>
+                            <span data-lang="es">Nombre *</span>
+                        </label>
+                        <input id="jFirst" type="text" required autocomplete="given-name">
+                    </div>
+                    <div class="modal-field">
+                        <label for="jLast">
+                            <span data-lang="en" class="active">Last Name *</span>
+                            <span data-lang="fr">Nom *</span>
+                            <span data-lang="es">Apellido *</span>
+                        </label>
+                        <input id="jLast" type="text" required autocomplete="family-name">
+                    </div>
+                </div>
+                <div class="modal-field">
+                    <label for="jEmail">
+                        <span data-lang="en" class="active">Email Address *</span>
+                        <span data-lang="fr">Adresse courriel *</span>
+                        <span data-lang="es">Correo electronico *</span>
+                    </label>
+                    <input id="jEmail" type="email" required autocomplete="email">
+                </div>
+                <div class="modal-field">
+                    <label for="jPhone">
+                        <span data-lang="en" class="active">Phone Number *</span>
+                        <span data-lang="fr">Numero de telephone *</span>
+                        <span data-lang="es">Numero de telefono *</span>
+                    </label>
+                    <input id="jPhone" type="tel" required autocomplete="tel">
+                </div>
+                <div class="modal-row">
+                    <div class="modal-field">
+                        <label for="jBestTime">
+                            <span data-lang="en" class="active">Best Time to Reach You *</span>
+                            <span data-lang="fr">Meilleur moment *</span>
+                            <span data-lang="es">Mejor horario *</span>
+                        </label>
+                        <select id="jBestTime" required class="modal-select">
+                            <option value="">-- Select --</option>
+                            <option value="Morning (8am - 12pm)">
+                                <span data-lang="en" class="active">Morning (8am - 12pm)</span>
+                            </option>
+                            <option value="Afternoon (12pm - 5pm)">
+                                <span data-lang="en" class="active">Afternoon (12pm - 5pm)</span>
+                            </option>
+                        </select>
+                    </div>
+                    <div class="modal-field">
+                        <label for="jExperience">
+                            <span data-lang="en" class="active">Years of Experience *</span>
+                            <span data-lang="fr">Années d'expérience *</span>
+                            <span data-lang="es">Anos de experiencia *</span>
+                        </label>
+                        <select id="jExperience" required class="modal-select">
+                            <option value="">-- Select --</option>
+                            <option value="Less than 1 year">
+                                <span data-lang="en" class="active">Less than 1 year</span>
+                            </option>
+                            <option value="1 - 2 years">1 - 2 years</option>
+                            <option value="3 - 5 years">3 - 5 years</option>
+                            <option value="6 - 10 years">6 - 10 years</option>
+                            <option value="10+ years">10+ years</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-field">
+                    <label for="jLocation">
+                        <span data-lang="en" class="active">Location &mdash; City / Region *</span>
+                        <span data-lang="fr">Localisation &mdash; Ville / Région *</span>
+                        <span data-lang="es">Ubicacion &mdash; Ciudad / Region *</span>
+                    </label>
+                    <input id="jLocation" type="text" required autocomplete="address-level2" placeholder="e.g. Montreal, Laval, Longueuil...">
+                </div>
+                <div class="modal-field" style="margin-bottom:1.5rem;">
+                    <label>
+                        <span data-lang="en" class="active">Curriculum Vitae (CV) &mdash; Optional</span>
+                        <span data-lang="fr">Curriculum Vitae (CV) &mdash; Facultatif</span>
+                        <span data-lang="es">Curriculum Vitae (CV) &mdash; Opcional</span>
+                    </label>
+                    <label class="modal-file-label" for="jCV">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        <span data-lang="en" class="active">Click to attach your CV (PDF, DOC, DOCX)</span>
+                        <span data-lang="fr">Cliquez pour joindre votre CV (PDF, DOC, DOCX)</span>
+                        <span data-lang="es">Haga clic para adjuntar su CV (PDF, DOC, DOCX)</span>
+                    </label>
+                    <input id="jCV" type="file" class="modal-file-input" accept=".pdf,.doc,.docx" onchange="updateFileName(this)">
+                    <p class="modal-file-name" id="jCVName">
+                        <span data-lang="en" class="active">No file selected</span>
+                        <span data-lang="fr">Aucun fichier sélectionné</span>
+                        <span data-lang="es">Ningun archivo seleccionado</span>
+                    </p>
+                    <p style="font-size:0.78rem; color:var(--neutral); margin-top:0.3rem; line-height:1.5;">
+                        <span data-lang="en" class="active">Your email client will open pre-filled. Please attach your CV file before sending.</span>
+                        <span data-lang="fr">Votre client de messagerie s'ouvrira pré-rempli. Veuillez joindre votre CV avant d'envoyer.</span>
+                        <span data-lang="es">Su cliente de correo se abrira pre-completado. Por favor adjunte su CV antes de enviar.</span>
+                    </p>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%; font-size:1rem; padding:0.9rem; border:none; cursor:pointer; background:var(--vita-green);">
+                    <span data-lang="en" class="active">Submit Application</span>
+                    <span data-lang="fr">Soumettre ma candidature</span>
+                    <span data-lang="es">Enviar mi solicitud</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="modal-success" id="jobModalSuccess" style="display:none;">
+            <div class="success-icon">&#10003;</div>
+            <h3 style="font-size:1.35rem; font-weight:900; color:var(--teal-dark); margin-bottom:0.6rem;">
+                <span data-lang="en" class="active">Application Sent!</span>
+                <span data-lang="fr">Candidature envoyée!</span>
+                <span data-lang="es">Solicitud enviada!</span>
+            </h3>
+            <p style="font-size:0.9rem; color:var(--neutral); line-height:1.65; margin-bottom:1.5rem;">
+                <span data-lang="en" class="active">Your email client has opened with your application pre-filled. Please remember to attach your CV before sending, then hit Send. We look forward to hearing from you!</span>
+                <span data-lang="fr">Votre client de messagerie s'est ouvert avec votre candidature pré-remplie. N'oubliez pas de joindre votre CV avant d'envoyer. Nous avons hâte de vous lire!</span>
+                <span data-lang="es">Su cliente de correo se ha abierto con su solicitud pre-completada. Recuerde adjuntar su CV antes de enviar. Esperamos tener noticias suyas!</span>
+            </p>
+            <button type="button" onclick="closeJobModal()" class="btn-primary" style="border:none; cursor:pointer; background:var(--vita-green);">
+                <span data-lang="en" class="active">Close</span>
+                <span data-lang="fr">Fermer</span>
+                <span data-lang="es">Cerrar</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- FINANCIAL ASSISTANCE MODAL -->
+<div id="financeModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="financeModalTitle">
+    <div class="doc-modal-box" style="max-width:640px;">
+        <div class="doc-modal-header" style="background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);">
+            <button class="modal-close" onclick="closeDocModal('financeModal')" aria-label="Close">&#x2715;</button>
+            <p class="doc-modal-title" id="financeModalTitle">
+                <span data-lang="en" class="active">Explore Financial Assistance</span>
+                <span data-lang="fr">Découvrez l'aide financière</span>
+                <span data-lang="es">Explore la asistencia financiera</span>
+            </p>
+            <p class="doc-modal-subtitle">
+                <span data-lang="en" class="active">Programs available to Québec résidents</span>
+                <span data-lang="fr">Programmes disponibles pour les résidents du Québec</span>
+                <span data-lang="es">Programas disponibles para residentes de Québec</span>
+            </p>
+        </div>
+        <div class="doc-modal-body">
+
+            <!-- Intro -->
+            <p style="font-size:1rem; line-height:1.75; color:#333;">
+                <span data-lang="en" class="active">Receive financial assistance. Seniors 70 and over qualify for a tax credit for home-support services for up to <strong>40% of the invoice</strong>.</span>
+                <span data-lang="fr">Recevez une aide financière. Les aînés de 70 ans et plus ont droit à un crédit d'impôt pour les services de soutien à domicile couvrant jusqu'à <strong>40% de la facture</strong>.</span>
+                <span data-lang="es">Reciba asistencia financiera. Los mayores de 70 anos califican para un credito fiscal por servicios de apoyo en el hogar de hasta <strong>40% de la factura</strong>.</span>
+            </p>
+
+            <!-- PEFSAD -->
+            <div style="margin-top:1.75rem; padding:1.5rem; background:#f4f9fb; border-radius:14px; border-left:4px solid var(--teal);">
+                <h3 style="font-size:1.15rem; font-weight:900; color:var(--teal-dark); margin:0 0 0.2rem; border:none; padding:0;">
+                    PEFSAD
+                </h3>
+                <p style="font-size:0.85rem; color:var(--teal); font-weight:600; margin:0 0 1.25rem;">
+                    <span data-lang="en" class="active">Financial Assistance Program for Domestic Help Services</span>
+                    <span data-lang="fr">Programme d'exonération financière pour les services d'aide domestique</span>
+                    <span data-lang="es">Programa de Asistencia Financiera para Servicios de Ayuda Domestica</span>
+                </p>
+
+                <!-- Fixed -->
+                <div style="margin-bottom:1.25rem;">
+                    <h4 style="font-size:0.95rem; font-weight:800; color:var(--teal-dark); margin:0 0 0.5rem; display:flex; align-items:center; gap:0.5rem;">
+                        <span style="display:inline-block; width:10px; height:10px; background:var(--vita-green); border-radius:50%; flex-shrink:0;"></span>
+                        <span data-lang="en" class="active">Fixed financial assistance</span>
+                        <span data-lang="fr">Aide financière fixe</span>
+                        <span data-lang="es">Asistencia financiera fija</span>
+                    </h4>
+                    <p style="font-size:0.9rem; line-height:1.7; color:#444; margin:0;">
+                        <span data-lang="en" class="active">A fixed assistance of <strong>$4.00 per hour</strong> of service is granted to any person 18 and older who resides in Québec and holds a health insurance card, regardless of income.</span>
+                        <span data-lang="fr">Une aide fixe de <strong>4,00$ par heure</strong> de service est accordée à toute personne de 18 ans et plus résidant au Québec et détenant une carte d'assurance maladie, peu importe son revenu.</span>
+                        <span data-lang="es">Se otorga una asistencia fija de <strong>$4,00 por hora</strong> de servicio a cualquier persona de 18 anos o mas que resida en Québec y posea una tarjeta de seguro de salud, independientemente de sus ingresos.</span>
+                    </p>
+                </div>
+
+                <!-- Variable -->
+                <div>
+                    <h4 style="font-size:0.95rem; font-weight:800; color:var(--teal-dark); margin:0 0 0.5rem; display:flex; align-items:center; gap:0.5rem;">
+                        <span style="display:inline-block; width:10px; height:10px; background:var(--teal); border-radius:50%; flex-shrink:0;"></span>
+                        <span data-lang="en" class="active">Variable financial assistance</span>
+                        <span data-lang="fr">Aide financière variable</span>
+                        <span data-lang="es">Asistencia financiera variable</span>
+                    </h4>
+                    <p style="font-size:0.9rem; line-height:1.7; color:#444; margin:0;">
+                        <span data-lang="en" class="active">Aside from the $4.00 fixed assistance, a variable financial assistance is granted to any person <strong>65 and older</strong>, as well as to people under 65 with a CLSC reference. The amount is determined based on income and family situation. The assistance varies between <strong>$2.76 and $22.08</strong>.</span>
+                        <span data-lang="fr">En plus de l'aide fixe de 4,00$, une aide variable est accordée à toute personne de <strong>65 ans et plus</strong>, ainsi qu'aux personnes de moins de 65 ans avec une référence du CLSC. Le montant est déterminé selon le revenu et la situation familiale. L'aide varie entre <strong>2,76$ et 22,08$</strong>.</span>
+                        <span data-lang="es">Ademas de la asistencia fija de $4,00, se otorga una asistencia variable a cualquier persona de <strong>65 anos o mas</strong>, asi como a personas menores de 65 con referencia del CLSC. El monto se determina segun los ingresos y la situacion familiar. La asistencia varia entre <strong>$2,76 y $22,08</strong>.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="doc-contact" style="margin-top:1.5rem;">
+                <strong><span data-lang="en" class="active">Questions about eligibility?</span><span data-lang="fr">Questions sur l'admissibilité?</span><span data-lang="es">Preguntas sobre elegibilidad?</span></strong><br>
+                <span data-lang="en" class="active">Contact us and we'll help guide you through the available programs.</span>
+                <span data-lang="fr">Contactez-nous et nous vous aiderons à naviguer parmi les programmes disponibles.</span>
+                <span data-lang="es">Contactenos y le ayudaremos a orientarse entre los programas disponibles.</span><br>
+                <a href="tel:5149176167" style="color:var(--teal);">514-917-6167</a> &nbsp;|&nbsp;
+                <a href="mailto:lorena@vitasoinetservices.com" style="color:var(--teal);">lorena@vitasoinetservices.com</a>
+            </div>
+        </div>
+        <div class="doc-modal-footer">
+            <button onclick="closeDocModal('financeModal')">
+                <span data-lang="en" class="active">Close</span>
+                <span data-lang="fr">Fermer</span>
+                <span data-lang="es">Cerrar</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- PRIVACY POLICY MODAL -->
+<div id="privacyModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="privacyModalTitle">
+    <div class="doc-modal-box">
+        <div class="doc-modal-header">
+            <button class="modal-close" onclick="closeDocModal('privacyModal')" aria-label="Close">&#x2715;</button>
+            <p class="doc-modal-title" id="privacyModalTitle">
+                <span data-lang="en" class="active">Privacy Policy</span>
+                <span data-lang="fr">Politique de confidentialité</span>
+                <span data-lang="es">Politica de privacidad</span>
+            </p>
+            <p class="doc-modal-subtitle">
+                <span data-lang="en" class="active">Effective: June 5, 2026 | Vita Soin et Services</span>
+                <span data-lang="fr">En vigueur: 5 juin 2026 | Vita Soin et Services</span>
+                <span data-lang="es">Vigente: 5 de junio de 2026 | Vita Soin et Services</span>
+            </p>
+        </div>
+        <div class="doc-modal-body">
+            <p>
+                <span data-lang="en" class="active">Vita Soin et Services ("we", "us", or "our"), owned and operated by Lorena Ybarra, is committed to protecting your personal information in accordance with Québec Law 25 (Act to modernize legislative provisions as regards the protection of personal information) and the federal Personal Information Protection and Electronic Documents Act (PIPEDA). This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use our website or services.</span>
+                <span data-lang="fr">Vita Soin et Services ("nous"), détenue et exploitée par Lorena Ybarra, s'engage à protéger vos renseignements personnels conformément à la Loi 25 du Québec et à la LPRPDE fédérale. Cette politique explique comment nous collectons, utilisons, divulguons et protégeons vos renseignements personnels.</span>
+                <span data-lang="es">Vita Soin et Services, propiedad de Lorena Ybarra, esta comprometida con la proteccion de su informacion personal conforme a la Ley 25 de Québec y la PIPEDA federal. Esta politica explica como recopilamos, usamos, divulgamos y protegemos su informacion.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">1. Scope</span><span data-lang="fr">1. Champ d'application</span><span data-lang="es">1. Alcance</span></h3>
+            <p>
+                <span data-lang="en" class="active">This Policy applies to personal information collected through our website (vitasoinetservices.ca) and through our in-home care services. It covers clients, prospective clients, families, and website visitors.</span>
+                <span data-lang="fr">Cette politique s'applique aux renseignements personnels collectés via notre site Web et nos services de soins à domicile. Elle concerne les clients, clients potentiels, familles et visiteurs du site.</span>
+                <span data-lang="es">Esta politica se aplica a la informacion recopilada a traves de nuestro sitio web y nuestros servicios de atencion domiciliaria, incluyendo clientes, prospectos, familias y visitantes.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">2. Information We Collect</span><span data-lang="fr">2. Renseignements que nous collectons</span><span data-lang="es">2. Informacion que recopilamos</span></h3>
+            <p><span data-lang="en" class="active">We may collect the following catégories of personal information:</span><span data-lang="fr">Nous pouvons collecter les catégories suivantes de renseignements personnels:</span><span data-lang="es">Podemos recopilar las siguientes categorias de informacion personal:</span></p>
+            <ul>
+                <li><span data-lang="en" class="active">Identity information: full name, date of birth, government-issued ID (where required)</span><span data-lang="fr">Identité : nom complet, date de naissance, pièce d'identité gouvernementale (si requise)</span><span data-lang="es">Identidad: nombre completo, fecha de nacimiento, identificacion gubernamental (si es requerida)</span></li>
+                <li><span data-lang="en" class="active">Contact information: address, phone number, email address</span><span data-lang="fr">Coordonnées : adresse, numéro de téléphone, adresse courriel</span><span data-lang="es">Contacto: direccion, telefono, correo electronico</span></li>
+                <li><span data-lang="en" class="active">Health information: medical conditions, mobility needs, care requirements, medication details</span><span data-lang="fr">Santé : conditions médicales, besoins de mobilité, exigences de soins, détails des médicaments</span><span data-lang="es">Salud: condiciones medicas, necesidades de movilidad, requisitos de atencion, detalles de medicacion</span></li>
+                <li><span data-lang="en" class="active">Emergency contact and authorized representative information</span><span data-lang="fr">Coordonnées des personnes à contacter en cas d'urgence et des représentants autorisés</span><span data-lang="es">Contactos de emergencia e informacion del representante autorizado</span></li>
+                <li><span data-lang="en" class="active">Technical data: IP address, browser type, pages visited (collected via cookies)</span><span data-lang="fr">Données techniques: adresse IP, type de navigateur, pages visitées (collectées via les témoins)</span><span data-lang="es">Datos tecnicos: IP, tipo de navegador, paginas visitadas (recopilados mediante cookies)</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">3. How We Use Your Information</span><span data-lang="fr">3. Utilisation de vos renseignements</span><span data-lang="es">3. Como usamos su informacion</span></h3>
+            <ul>
+                <li><span data-lang="en" class="active">To provide, manage, and coordinate home care services</span><span data-lang="fr">Pour fournir, gerer et coordonner les services de soins à domicile</span><span data-lang="es">Para proveer, gestionar y coordinar los servicios de atencion domiciliaria</span></li>
+                <li><span data-lang="en" class="active">To communicate with you about your care plan, scheduling, and updates</span><span data-lang="fr">Pour communiquer avec vous concernant votre plan de soins, les horaires et les mises a jour</span><span data-lang="es">Para comunicarnos sobre su plan de atencion, horarios y actualizaciones</span></li>
+                <li><span data-lang="en" class="active">To process billing and invoicing</span><span data-lang="fr">Pour traiter la facturation et les factures</span><span data-lang="es">Para procesar facturacion y pagos</span></li>
+                <li><span data-lang="en" class="active">To ensure safety and quality of care</span><span data-lang="fr">Pour assurer la sécurité et la qualite des soins</span><span data-lang="es">Para garantizar la seguridad y calidad del servicio</span></li>
+                <li><span data-lang="en" class="active">To improve our website and services</span><span data-lang="fr">Pour améliorer notre site Web et nos services</span><span data-lang="es">Para mejorar nuestro sitio web y servicios</span></li>
+                <li><span data-lang="en" class="active">To comply with legal obligations</span><span data-lang="fr">Pour respecter nos obligations legales</span><span data-lang="es">Para cumplir con obligaciones legales</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">4. Legal Basis for Processing</span><span data-lang="fr">4. Base juridique du traitement</span><span data-lang="es">4. Base juridica del tratamiento</span></h3>
+            <p>
+                <span data-lang="en" class="active">We process your personal information based on: your express consent (for health data), contractual necessity (to deliver agreed services), legitimate interests (to improve service quality), and legal obligations (compliance with applicable law).</span>
+                <span data-lang="fr">Nous traitons vos renseignements personnels en vertu de: votre consentement exprès (pour les données de santé), la nécessité contractuelle (pour la prestation des services), nos intérêts légitimes (pour améliorer la qualité du service) et nos obligations légales.</span>
+                <span data-lang="es">Procesamos su informacion basandonos en: su consentimiento expreso (para datos de salud), necesidad contractual (para prestar los servicios acordados), intereses legitimos (para mejorar la calidad del servicio) y obligaciones legales.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">5. Québec Law 25 Compliance</span><span data-lang="fr">5. Conformite a la Loi 25 du Québec</span><span data-lang="es">5. Cumplimiento de la Ley 25 de Québec</span></h3>
+            <p>
+                <span data-lang="en" class="active">In compliance with Québec Law 25, we: obtain free and informed consent before collecting personal information; allow you to withdraw consent at any time; provide access to and correction of your personal information upon request; and notify you of any privacy incidents that may cause serious harm.</span>
+                <span data-lang="fr">Conformement a la Loi 25 du Québec, nous: obtenons votre consentement libre et éclairé avant de collecter vos renseignements; vous permettons de retirer votre consentement à tout moment; vous donnons accès à vos renseignements et la possibilité de les corriger sur demande; et vous informons de tout incident susceptible de causer un préjudice grave.</span>
+                <span data-lang="es">En cumplimiento de la Ley 25 de Québec, obtenemos su consentimiento libre e informado, le permitimos retirar dicho consentimiento en cualquier momento, le damos acceso y correccion de su informacion personal y le notificamos sobre incidentes de privacidad que puedan causarle dano.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">6. Cookies</span><span data-lang="fr">6. Témoins (cookies)</span><span data-lang="es">6. Cookies</span></h3>
+            <p>
+                <span data-lang="en" class="active">We use essential cookies for website functionality and optional analytics cookies (with your consent) to understand how visitors use our site. You can manage your cookie préférences through our cookie consent banner. Essential cookies cannot be disabled as they are necessary for the site to function.</span>
+                <span data-lang="fr">Nous utilisons des témoins essentiels pour le fonctionnement du site Web et des témoins d'analyse optionnels (avec votre consentement) pour comprendre comment les visiteurs utilisent notre site. Vous pouvez gérer vos préférences via notre bandeau de consentement. Les témoins essentiels ne peuvent pas être désactivés.</span>
+                <span data-lang="es">Utilizamos cookies esenciales para el funcionamiento del sitio y cookies de analitica opcionales (con su consentimiento) para entender como los visitantes usan nuestro sitio. Puede gestionar sus preferencias a traves de nuestro banner de consentimiento.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">7. How We Share Your Information</span><span data-lang="fr">7. Partage de vos renseignements</span><span data-lang="es">7. Como compartimos su informacion</span></h3>
+            <p>
+                <span data-lang="en" class="active">We do not sell your personal information. We may share it with: trusted service providers (scheduling, billing) under strict confidentiality agreements; healthcare professionals involved in your care; regulatory authorities when legally required; and emergency services when safety is at risk.</span>
+                <span data-lang="fr">Nous ne vendons pas vos renseignements personnels. Nous pouvons les partager avec : des prestataires de services de confiance (planification, facturation) sous accord de confidentialité strict; des professionnels de santé impliqués dans vos soins; des autorités réglementaires lorsque la loi l'exige; et les services d'urgence en cas de risque pour la sécurité.</span>
+                <span data-lang="es">No vendemos su informacion personal. Podemos compartirla con: proveedores de confianza (programacion, facturacion) bajo estrictos acuerdos de confidencialidad; profesionales de salud involucrados en su atencion; autoridades reguladoras cuando la ley lo requiere; y servicios de emergencia cuando hay riesgo para la seguridad.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">8. Your Rights</span><span data-lang="fr">8. Vos droits</span><span data-lang="es">8. Sus derechos</span></h3>
+            <p><span data-lang="en" class="active">You have the right to:</span><span data-lang="fr">Vous avez le droit de:</span><span data-lang="es">Usted tiene el derecho de:</span></p>
+            <ul>
+                <li><span data-lang="en" class="active">Access your personal information held by us</span><span data-lang="fr">Accéder aux renseignements personnels que nous détenons sur vous</span><span data-lang="es">Acceder a su informacion personal en nuestro poder</span></li>
+                <li><span data-lang="en" class="active">Correct inaccurate or incomplete information</span><span data-lang="fr">Corriger les renseignements inexacts ou incomplets</span><span data-lang="es">Corregir informacion inexacta o incompleta</span></li>
+                <li><span data-lang="en" class="active">Withdraw consent (subject to legal or contractual restrictions)</span><span data-lang="fr">Retirer votre consentement (sous réserve de restrictions légales ou contractuelles)</span><span data-lang="es">Retirar su consentimiento (sujeto a restricciones legales o contractuales)</span></li>
+                <li><span data-lang="en" class="active">Request deletion of your personal information</span><span data-lang="fr">Demander la suppression de vos renseignements personnels</span><span data-lang="es">Solicitar la eliminacion de su informacion personal</span></li>
+                <li><span data-lang="en" class="active">File a complaint with the Commission d'acces a l'information (CAI)</span><span data-lang="fr">Déposer une plainte auprès de la Commission d'accès à l'information (CAI)</span><span data-lang="es">Presentar una queja ante la Commission d'acces a l'information (CAI)</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">9. Data Retention</span><span data-lang="fr">9. Conservation des données</span><span data-lang="es">9. Retencion de datos</span></h3>
+            <p>
+                <span data-lang="en" class="active">We retain personal information only as long as necessary for the purposes stated in this Policy or as required by law. Health records are retained for the minimum period required under Québec health legislation. When no longer needed, information is securely deleted or anonymized.</span>
+                <span data-lang="fr">Nous conservons les renseignements personnels aussi longtemps que nécessaire aux fins énoncées dans cette politique ou comme l'exige la loi. Les dossiers de santé sont conservés pendant la période minimale requise par la législation sanitaire du Québec. Lorsqu'ils ne sont plus nécessaires, les renseignements sont supprimés en toute sécurité ou anonymisés.</span>
+                <span data-lang="es">Conservamos la informacion personal solo el tiempo necesario para los propositos indicados en esta politica o seg&uacute;n lo exija la ley. Los registros de salud se conservan por el periodo minimo requerido por la legislacion sanitaria de Québec.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">10. Data Security</span><span data-lang="fr">10. Sécurité des données</span><span data-lang="es">10. Seguridad de datos</span></h3>
+            <p>
+                <span data-lang="en" class="active">We implement reasonable physical, administrative, and technical safeguards to protect your personal information from unauthorized access, use, or disclosure. In the event of a privacy incident that may cause serious harm, we will notify affected individuals and the CAI as required by law.</span>
+                <span data-lang="fr">Nous mettons en œuvre des mesures de protection physiques, administratives et techniques raisonnables pour protéger vos renseignements personnels contre tout accès, utilisation ou divulgation non autorisés. En cas d'incident susceptible de causer un préjudice grave, nous aviserons les personnes concernées et la CAI conformément à la loi.</span>
+                <span data-lang="es">Implementamos salvaguardas fisicas, administrativas y tecnicas para proteger su informacion personal. Ante un incidente de privacidad que pueda causar dano grave, notificaremos a los afectados y a la CAI segun lo exige la ley.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">11. Changes to This Policy</span><span data-lang="fr">11. Modifications de cette politique</span><span data-lang="es">11. Cambios a esta politica</span></h3>
+            <p>
+                <span data-lang="en" class="active">We may update this Privacy Policy from time to time. The updated version will be posted on our website with a new "Last Updated" date. We encourage you to review this Policy periodically. Continued use of our services after changes are posted constitutes acceptance of the updated Policy.</span>
+                <span data-lang="fr">Nous pouvons mettre a jour cette politique de temps a autre. La version mise à jour sera publiée sur notre site Web avec une nouvelle date de "Dernière mise à jour". Nous vous encourageons à consulter régulièrement cette politique.</span>
+                <span data-lang="es">Podemos actualizar esta Politica de Privacidad periodicamente. La version actualizada se publicara en nuestro sitio web con una nueva fecha de "Ultima actualizacion".</span>
+            </p>
+
+            <div class="doc-contact">
+                <strong><span data-lang="en" class="active">Privacy Officer / Contact</span><span data-lang="fr">Responsable de la protection de la vie privée</span><span data-lang="es">Oficial de Privacidad / Contacto</span></strong><br>
+                Lorena Ybarra, Owner &mdash; Vita Soin et Services<br>
+                <span data-lang="en" class="active">Email:</span><span data-lang="fr">Courriel:</span><span data-lang="es">Correo:</span> <a href="mailto:lorena@vitasoinetservices.com" style="color:var(--teal);">lorena@vitasoinetservices.com</a><br>
+                Montreal, QC, Canada
+            </div>
+        </div>
+        <div class="doc-modal-footer">
+            <button onclick="closeDocModal('privacyModal')">
+                <span data-lang="en" class="active">Close</span>
+                <span data-lang="fr">Fermer</span>
+                <span data-lang="es">Cerrar</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- CLIENT SAFETY MODAL -->
+<div id="safetyModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="safetyModalTitle">
+    <div class="doc-modal-box">
+        <div class="doc-modal-header">
+            <button class="modal-close" onclick="closeDocModal('safetyModal')" aria-label="Close">&#x2715;</button>
+            <p class="doc-modal-title" id="safetyModalTitle">
+                <span data-lang="en" class="active">Client Safety &amp; Security</span>
+                <span data-lang="fr">Sécurité et surete des clients</span>
+                <span data-lang="es">Seguridad del cliente</span>
+            </p>
+            <p class="doc-modal-subtitle">
+                <span data-lang="en" class="active">Vita Soin et Services | Your safety is our priority</span>
+                <span data-lang="fr">Vita Soin et Services | Votre sécurité est notre priorité</span>
+                <span data-lang="es">Vita Soin et Services | Su seguridad es nuestra prioridad</span>
+            </p>
+        </div>
+        <div class="doc-modal-body">
+            <p>
+                <span data-lang="en" class="active">At Vita Soin et Services, client safety is at the core of everything we do. We have developed comprehensive policies and practices to ensure that every client receives care that is not only compassionate but also safe, reliable, and secure.</span>
+                <span data-lang="fr">Chez Vita Soin et Services, la sécurité des clients est au cœur de tout ce que nous faisons. Nous avons élaboré des politiques et pratiques complètes pour garantir que chaque client reçoit des soins non seulement bienveillants, mais aussi sûrs, fiables et sécurisés.</span>
+                <span data-lang="es">En Vita Soin et Services, la seguridad del cliente es fundamental en todo lo que hacemos. Hemos desarrollado politicas y practicas integrales para garantizar que cada cliente reciba una atencion compasiva, segura, confiable y protegida.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">1. Caregiver Screening &amp; Qualifications</span><span data-lang="fr">1. Selection et qualifications des préposées aux soins</span><span data-lang="es">1. Seleccion y calificaciones de cuidadores</span></h3>
+            <p><span data-lang="en" class="active">All caregivers at Vita Soin et Services undergo a rigorous hiring process, including:</span><span data-lang="fr">Toutes nos préposées aux soins passent par un processus de recrutement rigoureux, comprenant:</span><span data-lang="es">Todos los cuidadores de Vita Soin et Services pasan por un riguroso proceso de contratacion, que incluye:</span></p>
+            <ul>
+                <li><span data-lang="en" class="active">Criminal background checks</span><span data-lang="fr">Vérification des antécédents criminels</span><span data-lang="es">Verificacion de antecedentes criminales</span></li>
+                <li><span data-lang="en" class="active">Professional reference verification</span><span data-lang="fr">Vérification des références professionnelles</span><span data-lang="es">Verificacion de referencias profesionales</span></li>
+                <li><span data-lang="en" class="active">Certification and training validation</span><span data-lang="fr">Validation des certifications et des formations</span><span data-lang="es">Validacion de certificaciones y formacion</span></li>
+                <li><span data-lang="en" class="active">Ongoing performance evaluations</span><span data-lang="fr">Évaluations continues des performances</span><span data-lang="es">Evaluaciones continuas de desempeno</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">2. Service Reliability</span><span data-lang="fr">2. Fiabilite des services</span><span data-lang="es">2. Confiabilidad del servicio</span></h3>
+            <ul>
+                <li><span data-lang="en" class="active">Scheduled visits are confirmed and tracked to ensure no client is ever left without care</span><span data-lang="fr">Les visites planifiées sont confirmées et suivies pour s'assurer qu'aucun client n'est jamais laissé sans soins</span><span data-lang="es">Las visitas programadas se confirman y rastrean para garantizar que ningun cliente quede sin atencion</span></li>
+                <li><span data-lang="en" class="active">Backup caregivers are available to cover unexpected absences</span><span data-lang="fr">Des préposées de remplacement sont disponibles pour couvrir les absences imprévues</span><span data-lang="es">Se dispone de cuidadores de reemplazo para cubrir ausencias inesperadas</span></li>
+                <li><span data-lang="en" class="active">Supervisors conduct regular check-ins with both clients and caregivers</span><span data-lang="fr">Les superviseurs effectuent des suivis réguliers auprès des clients et des préposées</span><span data-lang="es">Los supervisores realizan seguimientos regulares con clientes y cuidadores</span></li>
+                <li><span data-lang="en" class="active">A 24/7 contact line is available for urgent needs</span><span data-lang="fr">Une ligne de contact disponible 24h/24, 7j/7 pour les besoins urgents</span><span data-lang="es">Una linea de contacto disponible 24/7 para necesidades urgentes</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">3. Data &amp; Privacy Security</span><span data-lang="fr">3. Sécurité des données et de la vie privee</span><span data-lang="es">3. Seguridad de datos y privacidad</span></h3>
+            <ul>
+                <li><span data-lang="en" class="active">All client health and personal information is handled in strict accordance with Québec Law 25 and PIPEDA</span><span data-lang="fr">Toutes les informations de santé et personnelles des clients sont traitees conformément a la Loi 25 du Québec et a la LPRPDE</span><span data-lang="es">Toda la informacion de salud y personal de los clientes se maneja conforme a la Ley 25 de Québec y la PIPEDA</span></li>
+                <li><span data-lang="en" class="active">Client files are stored securely with restricted access</span><span data-lang="fr">Les dossiers clients sont stockes en sécurité avec un acces restreint</span><span data-lang="es">Los expedientes de clientes se almacenan de forma segura con acceso restringido</span></li>
+                <li><span data-lang="en" class="active">Caregivers are trained in privacy and confidentiality obligations</span><span data-lang="fr">Les préposées sont formees sur leurs obligations en matiere de confidentialité</span><span data-lang="es">Los cuidadores reciben formacion sobre sus obligaciones de privacidad y confidencialidad</span></li>
+                <li><span data-lang="en" class="active">Digital tools and platforms used are compliant with applicable privacy standards</span><span data-lang="fr">Les outils et plateformes numériques utilisés sont conformes aux normes de confidentialité applicables</span><span data-lang="es">Las herramientas y plataformas digitales utilizadas cumplen con las normas de privacidad aplicables</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">4. Home Environment Safety</span><span data-lang="fr">4. Sécurité de l'environnement domiciliaire</span><span data-lang="es">4. Seguridad del entorno domestico</span></h3>
+            <ul>
+                <li><span data-lang="en" class="active">A home safety assessment may be conducted prior to initiating care to identify potential hazards</span><span data-lang="fr">Une évaluation de la sécurité à domicile peut être effectuée avant le début des soins pour identifier les risques potentiels</span><span data-lang="es">Se puede realizar una evaluacion de seguridad del hogar antes de iniciar la atencion para identificar posibles riesgos</span></li>
+                <li><span data-lang="en" class="active">Caregivers are trained in fall prevention, safe transfers, and emergency response procedures</span><span data-lang="fr">Les préposées sont formées en prévention des chutes, transferts sécurisés et procédures d'urgence</span><span data-lang="es">Los cuidadores estan capacitados en prevencion de caidas, traslados seguros y procedimientos de emergencia</span></li>
+                <li><span data-lang="en" class="active">Clients and families are encouraged to communicate any environmental concerns to their care coordinator</span><span data-lang="fr">Les clients et les familles sont encouragés à communiquer toute préoccupation relative à l'environnement à leur coordonnateur de soins</span><span data-lang="es">Se anima a los clientes y familiares a comunicar cualquier preocupacion sobre el entorno a su coordinador de atencion</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">5. Insurance &amp; Liability</span><span data-lang="fr">5. Assurances et responsabilité</span><span data-lang="es">5. Seguros y responsabilidad</span></h3>
+            <ul>
+                <li><span data-lang="en" class="active">Vita Soin et Services maintains professional liability insurance covering all caregiving activities</span><span data-lang="fr">Vita Soin et Services maintient une assurance responsabilité professionnelle couvrant toutes les activités de soins</span><span data-lang="es">Vita Soin et Services mantiene un seguro de responsabilidad profesional que cubre todas las actividades de cuidado</span></li>
+                <li><span data-lang="en" class="active">All caregivers are covered under our organizational insurance policy</span><span data-lang="fr">Toutes les préposées sont couvertes par notre police d'assurance organisationnelle</span><span data-lang="es">Todos los cuidadores estan cubiertos por nuestra poliza de seguro organizacional</span></li>
+                <li><span data-lang="en" class="active">Clients are encouraged to review their homeowner's or tenant's insurance for additional coverage</span><span data-lang="fr">Les clients sont encouragés à vérifier leur assurance habitation ou locataire pour une couverture supplémentaire</span><span data-lang="es">Se anima a los clientes a revisar su seguro de hogar o arrendatario para cobertura adicional</span></li>
+            </ul>
+
+            <div class="doc-notice">
+                <strong><span data-lang="en" class="active">Important Notice</span><span data-lang="fr">Avis important</span><span data-lang="es">Aviso importante</span></strong><br>
+                <span data-lang="en" class="active">Vita Soin et Services provides non-medical home care support. We do not provide emergency medical services. In any medical emergency, please call 911 immediately. Our caregivers are trained to recognize emergency situations and will call 911 and notify the family promptly.</span>
+                <span data-lang="fr">Vita Soin et Services fournit un soutien de soins à domicile non médical. Nous ne fournissons pas de services médicaux d'urgence. En cas d'urgence médicale, veuillez appeler le 911 immédiatement. Nos préposées sont formées pour reconnaître les situations d'urgence et appelleront le 911 et aviseront la famille rapidement.</span>
+                <span data-lang="es">Vita Soin et Services proporciona apoyo de atencion domiciliaria no medica. No brindamos servicios medicos de emergencia. En cualquier emergencia medica, llame al 911 de inmediato. Nuestros cuidadores estan capacitados para reconocer situaciones de emergencia y llamaran al 911 y notificaran a la familia rapidamente.</span>
+            </div>
+
+            <div class="doc-contact">
+                <strong><span data-lang="en" class="active">Questions or Concerns?</span><span data-lang="fr">Questions ou préoccupations?</span><span data-lang="es">Preguntas o inquietudes?</span></strong><br>
+                <span data-lang="en" class="active">Contact us at</span><span data-lang="fr">Contactez-nous a</span><span data-lang="es">Contactenos en</span> <a href="mailto:lorena@vitasoinetservices.com" style="color:var(--teal);">lorena@vitasoinetservices.com</a>
+                <span data-lang="en" class="active">or by phone at</span><span data-lang="fr">ou par telephone au</span><span data-lang="es">o por telefono al</span> <a href="tel:5149176167" style="color:var(--teal);">514-917-6167</a>
+            </div>
+        </div>
+        <div class="doc-modal-footer">
+            <button onclick="closeDocModal('safetyModal')">
+                <span data-lang="en" class="active">Close</span>
+                <span data-lang="fr">Fermer</span>
+                <span data-lang="es">Cerrar</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- TERMS OF SERVICE MODAL -->
+<div id="termsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="termsModalTitle">
+    <div class="doc-modal-box">
+        <div class="doc-modal-header">
+            <button class="modal-close" onclick="closeDocModal('termsModal')" aria-label="Close">&#x2715;</button>
+            <p class="doc-modal-title" id="termsModalTitle">
+                <span data-lang="en" class="active">Terms and Conditions</span>
+                <span data-lang="fr">Conditions d'utilisation</span>
+                <span data-lang="es">Terminos y condiciones</span>
+            </p>
+            <p class="doc-modal-subtitle">
+                <span data-lang="en" class="active">Last Updated: June 5, 2026 | Vita Soin et Services</span>
+                <span data-lang="fr">Dernière mise à jour : 5 juin 2026 | Vita Soin et Services</span>
+                <span data-lang="es">Ultima actualizacion: 5 de junio de 2026 | Vita Soin et Services</span>
+            </p>
+        </div>
+        <div class="doc-modal-body">
+            <p>
+                <span data-lang="en" class="active">Welcome to the website of Vita Soin et Services, owned and operated by Lorena Ybarra. By accessing or using our website or services, you agree to be bound by the following Terms and Conditions. If you do not agree with these Terms, please refrain from using our website and services. These Terms apply to all visitors, users, clients, and others who access or use our services.</span>
+                <span data-lang="fr">Bienvenue sur le site Web de Vita Soin et Services, détenu et exploité par Lorena Ybarra. En accédant ou en utilisant notre site Web ou nos services, vous acceptez d'être lié par les présentes Conditions. Si vous n'êtes pas d'accord avec ces Conditions, veuillez vous abstenir d'utiliser notre site Web et nos services.</span>
+                <span data-lang="es">Bienvenido al sitio web de Vita Soin et Services, propiedad de Lorena Ybarra. Al acceder o utilizar nuestro sitio web o servicios, usted acepta estar sujeto a los siguientes Terminos y Condiciones. Si no esta de acuerdo con estos Terminos, abstengase de usar nuestro sitio web y servicios.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">1. Use of Website and Services</span><span data-lang="fr">1. Utilisation du site Web et des services</span><span data-lang="es">1. Uso del sitio web y los servicios</span></h3>
+            <p>
+                <span data-lang="en" class="active">The Vita Soin et Services website and its content are provided for general information and service purposes only. The services we offer, including in-home personal care, companionship, assistance with daily living activities, and related elder care support, are subject to individual service agreements, care assessments, and applicable regulatory requirements. Nothing on this site constitutes medical, legal, or financial advice. You agree to use this website and our services in compliance with all applicable laws.</span>
+                <span data-lang="fr">Le site Web de Vita Soin et Services et son contenu sont fournis à des fins d'information générale et de services uniquement. Les services que nous offrons, y compris les soins personnels à domicile, l'accompagnement et l'aide aux activités quotidiennes, sont soumis à des ententes de service individuelles, des évaluations de soins et des exigences réglementaires applicables. Rien sur ce site ne constitue un conseil médical, juridique ou financier.</span>
+                <span data-lang="es">El sitio web de Vita Soin et Services y su contenido se proporcionan solo con fines informativos y de servicio. Los servicios que ofrecemos estan sujetos a acuerdos de servicio individuales, evaluaciones de atencion y requisitos regulatorios aplicables. Nada en este sitio constituye asesoramiento medico, legal o financiero.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">2. Eligibility</span><span data-lang="fr">2. Admissibilité</span><span data-lang="es">2. Elegibilidad</span></h3>
+            <p><span data-lang="en" class="active">To use our services, you must:</span><span data-lang="fr">Pour utiliser nos services, vous devez:</span><span data-lang="es">Para usar nuestros servicios, debe:</span></p>
+            <ul>
+                <li><span data-lang="en" class="active">Be at least 18 years old, or be acting as an authorized representative for a client</span><span data-lang="fr">Avoir au moins 18 ans, ou agir en tant que representant autorisé d'un client</span><span data-lang="es">Tener al menos 18 anos, o actuar como representante autorizado de un cliente</span></li>
+                <li><span data-lang="en" class="active">Be authorized to enter into a service agreement on behalf of the client (if applicable)</span><span data-lang="fr">Être autorisé à conclure une entente de service au nom du client (le cas échéant)</span><span data-lang="es">Estar autorizado para celebrar un acuerdo de servicio en nombre del cliente (si aplica)</span></li>
+                <li><span data-lang="en" class="active">Provide accurate and complete information during intake, onboarding, and throughout the duration of the service</span><span data-lang="fr">Fournir des informations exactes et completes lors de l'admission, de l'intégration et tout au long de la durée du service</span><span data-lang="es">Proporcionar informacion precisa y completa durante la admision, incorporacion y durante la duracion del servicio</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">3. Intellectual Property</span><span data-lang="fr">3. Propriete intellectuelle</span><span data-lang="es">3. Propiedad intelectual</span></h3>
+            <p>
+                <span data-lang="en" class="active">All content on this website, including logos, text, images, videos, software, and design, is the property of Vita Soin et Services or its licensors and is protected under applicable copyright and trademark laws. You may not copy, modify, reproduce, publish, distribute, or exploit any content without our prior written permission.</span>
+                <span data-lang="fr">Tout le contenu de ce site Web, y compris les logos, textes, images, vidéos, logiciels et designs, est la propriété de Vita Soin et Services ou de ses concédants de licence et est protégé par les lois applicables en matière de droit d'auteur et de marques de commerce. Vous ne pouvez pas copier, modifier, reproduire, publier, distribuer ou exploiter tout contenu sans notre permission écrite préalable.</span>
+                <span data-lang="es">Todo el contenido de este sitio web, incluyendo logos, texto, imagenes, videos, software y diseno, es propiedad de Vita Soin et Services o sus licenciantes y esta protegido por las leyes de derechos de autor y marcas comerciales aplicables.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">4. Service Agreements and Third-Party Providers</span><span data-lang="fr">4. Ententes de service et prestataires tiers</span><span data-lang="es">4. Acuerdos de servicio y proveedores externos</span></h3>
+            <p>
+                <span data-lang="en" class="active">Vita Soin et Services may work with trusted third-party providers to support the delivery of its services, including scheduling platforms, billing processors, and care coordination tools. By using our services, you acknowledge that third-party providers may process certain data as part of service delivery, always subject to applicable privacy laws.</span>
+                <span data-lang="fr">Vita Soin et Services peut collaborer avec des prestataires tiers de confiance pour soutenir la prestation de ses services, notamment des plateformes de planification, des processeurs de facturation et des outils de coordination des soins. En utilisant nos services, vous reconnaissez que ces prestataires peuvent traiter certaines données dans le cadre de la prestation de services, toujours dans le respect des lois sur la protection de la vie privée applicables.</span>
+                <span data-lang="es">Vita Soin et Services puede trabajar con proveedores externos de confianza para la prestacion de servicios, incluyendo plataformas de programacion, procesadores de facturacion y herramientas de coordinacion de atencion.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">5. Service Fees and Billing</span><span data-lang="fr">5. Honoraires de service et facturation</span><span data-lang="es">5. Tarifas de servicio y facturacion</span></h3>
+            <p>
+                <span data-lang="en" class="active">Service fees are outlined in the individual service agreement provided at the time of onboarding. By accepting a service agreement, you agree to pay the applicable fees according to the stated terms. Vita Soin et Services reserves the right to adjust service rates with reasonable advance notice.</span>
+                <span data-lang="fr">Les honoraires de service sont définis dans l'entente de service individuelle fournie lors de l'intégration. En acceptant une entente de service, vous acceptez de payer les honoraires applicables selon les conditions énoncées. Vita Soin et Services se réserve le droit d'ajuster les tarifs avec un préavis raisonnable.</span>
+                <span data-lang="es">Las tarifas de servicio se detallan en el acuerdo de servicio individual proporcionado durante la incorporacion. Al aceptar un acuerdo de servicio, acepta pagar las tarifas aplicables segun los terminos establecidos.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">6. Cancellations and Modifications</span><span data-lang="fr">6. Annulations et modifications</span><span data-lang="es">6. Cancelaciones y modificaciones</span></h3>
+            <p>
+                <span data-lang="en" class="active">Clients or their authorized representatives may request modifications or cancellations of scheduled visits by contacting us in advance. Specific notice requirements and any applicable fees for late cancellations are outlined in the individual service agreement. We reserve the right to modify or discontinue services with appropriate notice in cases of safety concerns, non-payment, or circumstances beyond our control.</span>
+                <span data-lang="fr">Les clients ou leurs représentants autorisés peuvent demander des modifications ou des annulations de visites planifiées en nous contactant à l'avance. Les exigences spécifiques de préavis et les frais applicables pour les annulations tardives sont spécifiés dans l'entente de service individuelle.</span>
+                <span data-lang="es">Los clientes o sus representantes autorizados pueden solicitar modificaciones o cancelaciones de visitas programadas contactandonos con anticipacion. Los requisitos especificos de aviso y las tarifas aplicables se detallan en el acuerdo de servicio individual.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">7. Disclaimers and Limitation of Liability</span><span data-lang="fr">7. Avis de non-responsabilité et limitation de responsabilité</span><span data-lang="es">7. Descargos de responsabilidad y limitacion de responsabilidad</span></h3>
+            <p><span data-lang="en" class="active">We strive to provide professional, compassionate, and consistent home care services. However, we do not warrant:</span><span data-lang="fr">Nous nous efforçons de fournir des services de soins à domicile professionnels et bienveillants. Cependant, nous ne garantissons pas :</span><span data-lang="es">Nos esforzamos por brindar servicios de atencion domiciliaria profesionales y compasivos. Sin embargo, no garantizamos:</span></p>
+            <ul>
+                <li><span data-lang="en" class="active">That our website will always be available, secure, or error-free</span><span data-lang="fr">Que notre site Web sera toujours disponible, sécurisé ou sans erreur</span><span data-lang="es">Que nuestro sitio web estara siempre disponible, seguro o libre de errores</span></li>
+                <li><span data-lang="en" class="active">That website content is always current, complete, or accurate</span><span data-lang="fr">Que le contenu du site Web est toujours à jour, complet ou exact</span><span data-lang="es">Que el contenido del sitio web sea siempre actual, completo o preciso</span></li>
+                <li><span data-lang="en" class="active">To the fullest extent permitted by law, Vita Soin et Services shall not be liable for any indirect, incidental, or consequential damages resulting from your use of our website or services</span><span data-lang="fr">Dans toute la mesure permise par la loi, Vita Soin et Services ne sera pas responsable des dommages indirects, accessoires ou conséquents découlant de l'utilisation de notre site Web ou de nos services</span><span data-lang="es">En la maxima medida permitida por la ley, Vita Soin et Services no sera responsable de danos indirectos, incidentales o consecuentes derivados del uso de nuestro sitio web o servicios</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">8. Client and Family Responsibilities</span><span data-lang="fr">8. Responsabilites du client et de la famille</span><span data-lang="es">8. Responsabilidades del cliente y la familia</span></h3>
+            <ul>
+                <li><span data-lang="en" class="active">Provide accurate and complete information about the client's health, mobility, and care needs</span><span data-lang="fr">Fournir des informations exactes et complètes sur la santé, la mobilité et les besoins de soins du client</span><span data-lang="es">Proporcionar informacion precisa y completa sobre la salud, movilidad y necesidades de atencion del cliente</span></li>
+                <li><span data-lang="en" class="active">Maintain a safe and respectful environment for caregivers</span><span data-lang="fr">Maintenir un environnement sûr et respectueux pour les préposées aux soins</span><span data-lang="es">Mantener un entorno seguro y respetuoso para los cuidadores</span></li>
+                <li><span data-lang="en" class="active">Notify us promptly of any changes in the client's health or care requirements</span><span data-lang="fr">Nous informer rapidement de tout changement dans l'état de santé ou les besoins de soins du client</span><span data-lang="es">Notificarnos de inmediato cualquier cambio en la salud o los requisitos de atencion del cliente</span></li>
+                <li><span data-lang="en" class="active">Refrain from asking caregivers to perform tasks outside the scope of the agreed service plan</span><span data-lang="fr">S'abstenir de demander aux préposées d'effectuer des tâches en dehors du plan de service convenu</span><span data-lang="es">Abstenerse de pedir a los cuidadores que realicen tareas fuera del alcance del plan de servicio acordado</span></li>
+                <li><span data-lang="en" class="active">Not engage Vita Soin et Services caregivers directly for private employment outside of the service agreement</span><span data-lang="fr">Ne pas engager directement les préposées de Vita Soin et Services pour un emploi privé en dehors de l'entente de service</span><span data-lang="es">No contratar directamente a los cuidadores de Vita Soin et Services para empleo privado fuera del acuerdo de servicio</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">9. User Conduct and Prohibited Use</span><span data-lang="fr">9. Conduite des utilisateurs et utilisations interdites</span><span data-lang="es">9. Conducta del usuario y uso prohibido</span></h3>
+            <p><span data-lang="en" class="active">You agree not to:</span><span data-lang="fr">Vous vous engagez à ne pas :</span><span data-lang="es">Usted acepta no:</span></p>
+            <ul>
+                <li><span data-lang="en" class="active">Misuse or interfere with our website or services</span><span data-lang="fr">Utiliser de manière abusive ou entraver notre site Web ou nos services</span><span data-lang="es">Usar indebidamente o interferir con nuestro sitio web o servicios</span></li>
+                <li><span data-lang="en" class="active">Attempt to gain unauthorized access to Vita Soin et Services's systems, accounts, or networks</span><span data-lang="fr">Tenter d'obtenir un accès non autorisé aux systèmes, comptes ou réseaux de Vita Soin et Services</span><span data-lang="es">Intentar obtener acceso no autorizado a los sistemas, cuentas o redes de Vita Soin et Services</span></li>
+                <li><span data-lang="en" class="active">Use our services for fraudulent, criminal, or unlawful activity</span><span data-lang="fr">Utiliser nos services pour des activités frauduleuses, criminelles ou illicites</span><span data-lang="es">Usar nuestros servicios para actividades fraudulentas, criminales o ilegales</span></li>
+                <li><span data-lang="en" class="active">Impersonate any person or business, or provide false identity or health information</span><span data-lang="fr">Usurper l'identité de toute personne ou entreprise, ou fournir de fausses informations d'identité ou de santé</span><span data-lang="es">Suplantar a cualquier persona o empresa, o proporcionar informacion falsa de identidad o salud</span></li>
+                <li><span data-lang="en" class="active">Harass, abuse, or threaten any Vita Soin et Services employee or caregiver</span><span data-lang="fr">Harceler, maltraiter ou menacer tout employé ou préposée de Vita Soin et Services</span><span data-lang="es">Acosar, abusar o amenazar a cualquier empleado o cuidador de Vita Soin et Services</span></li>
+            </ul>
+
+            <h3><span data-lang="en" class="active">10. Privacy</span><span data-lang="fr">10. Vie privee</span><span data-lang="es">10. Privacidad</span></h3>
+            <p>
+                <span data-lang="en" class="active">Your use of this website and our services is governed by our Privacy Policy, which outlines how we collect, use, and protect your personal and health-related information. By using our services, you consent to the collection and use of your information as described in that policy.</span>
+                <span data-lang="fr">Votre utilisation de ce site Web et de nos services est régie par notre Politique de confidentialité, qui décrit comment nous collectons, utilisons et protégeons vos informations personnelles et de santé. En utilisant nos services, vous consentez à la collecte et à l'utilisation de vos informations telles que décrites dans cette politique.</span>
+                <span data-lang="es">Su uso de este sitio web y nuestros servicios esta regido por nuestra Politica de privacidad, que describe como recopilamos, usamos y protegemos su informacion personal y de salud.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">11. Complaints and Customer Support</span><span data-lang="fr">11. Plaintes et service client</span><span data-lang="es">11. Quejas y atencion al cliente</span></h3>
+            <p>
+                <span data-lang="en" class="active">We aim to resolve all concerns promptly and with care. If you have a complaint or concern about our services or a caregiver, please contact us directly. We are committed to addressing all issues transparently and in a timely manner.</span>
+                <span data-lang="fr">Nous nous efforçons de résoudre toutes les préoccupations rapidement et avec soin. Si vous avez une plainte ou une préoccupation concernant nos services ou une préposée, veuillez nous contacter directement. Nous nous engageons à traiter tous les problèmes de manière transparente et en temps opportun.</span>
+                <span data-lang="es">Nos esforzamos por resolver todas las inquietudes con prontitud y cuidado. Si tiene una queja o preocupacion sobre nuestros servicios o un cuidador, contactenos directamente.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">12. Changes to Terms</span><span data-lang="fr">12. Modifications des conditions</span><span data-lang="es">12. Cambios en los terminos</span></h3>
+            <p>
+                <span data-lang="en" class="active">We reserve the right to modify these Terms at any time. Changes will be posted on this page with an updated "Last Updated" date. Continued use of our website or services following the posting of changes constitutes your acceptance of the revised Terms.</span>
+                <span data-lang="fr">Nous nous réservons le droit de modifier ces Conditions à tout moment. Les modifications seront publiées sur cette page avec une date de "Dernière mise à jour" actualisée. L'utilisation continue de notre site Web ou de nos services après la publication des modifications constitue votre acceptation des Conditions révisées.</span>
+                <span data-lang="es">Nos reservamos el derecho de modificar estos Terminos en cualquier momento. Los cambios se publicaran en esta pagina con una fecha de "Ultima actualizacion" actualizada.</span>
+            </p>
+
+            <h3><span data-lang="en" class="active">13. Governing Law</span><span data-lang="fr">13. Droit applicable</span><span data-lang="es">13. Ley aplicable</span></h3>
+            <p>
+                <span data-lang="en" class="active">These Terms are governed by the laws of the Province of Québec and the laws of Canada applicable therein. You agree to submit to the exclusive jurisdiction of the courts located in Québec for any disputes arising out of these Terms or your use of the Services.</span>
+                <span data-lang="fr">Ces Conditions sont régies par les lois de la Province de Québec et les lois du Canada qui y sont applicables. Vous acceptez de vous soumettre à la juridiction exclusive des tribunaux situés au Québec pour tout litige découlant de ces Conditions ou de votre utilisation des Services.</span>
+                <span data-lang="es">Estos Terminos se rigen por las leyes de la Provincia de Québec y las leyes de Canada aplicables. Usted acepta someterse a la jurisdiccion exclusiva de los tribunales ubicados en Québec para cualquier disputa que surja de estos Terminos.</span>
+            </p>
+
+            <div class="doc-contact">
+                <strong><span data-lang="en" class="active">Contact Us</span><span data-lang="fr">Contactez-nous</span><span data-lang="es">Contactenos</span></strong><br>
+                Lorena Ybarra, Owner &mdash; Vita Soin et Services<br>
+                <span data-lang="en" class="active">Email:</span><span data-lang="fr">Courriel:</span><span data-lang="es">Correo:</span> <a href="mailto:lorena@vitasoinetservices.com" style="color:var(--teal);">lorena@vitasoinetservices.com</a><br>
+                Montreal, QC, Canada
+            </div>
+        </div>
+        <div class="doc-modal-footer">
+            <button onclick="closeDocModal('termsModal')">
+                <span data-lang="en" class="active">Close</span>
+                <span data-lang="fr">Fermer</span>
+                <span data-lang="es">Cerrar</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- TAX CREDITS & PAYMENT SECTION -->
+<section class="sec" style="background:var(--white); padding-top:3.5rem; padding-bottom:0;">
+    <div class="wrap" style="max-width:860px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem;">
+
+            <!-- Tax Credits -->
+            <div>
+                <h3 style="font-size:1.1rem; font-weight:800; color:var(--teal-dark); margin-bottom:0.85rem; padding-bottom:0.5rem; border-bottom:2px solid var(--teal-light);">
+                    <span data-lang="en" class="active">Tax Credits</span>
+                    <span data-lang="fr">Crédits d'impôt</span>
+                    <span data-lang="es">Creditos fiscales</span>
+                </h3>
+                <p style="font-size:0.925rem; line-height:1.75; color:#444; margin-bottom:0.85rem;">
+                    <span data-lang="en" class="active">Users over 70 are eligible for a tax credit for home support. This credit can reduce the bill by more than 40%.</span>
+                    <span data-lang="fr">Les utilisateurs de plus de 70 ans sont admissibles à un crédit d'impôt pour le maintien à domicile. Ce crédit peut réduire la facture de plus de 40%.</span>
+                    <span data-lang="es">Los usuarios mayores de 70 anos son elegibles para un credito fiscal de apoyo en el hogar. Este credito puede reducir la factura en mas de un 40%.</span>
+                </p>
+                <p style="font-size:0.925rem; line-height:1.75; color:#444;">
+                    <span data-lang="en" class="active">A statement to request this credit will be provided to you once a year.</span>
+                    <span data-lang="fr">Un relevé pour demander ce crédit vous sera fourni une fois par année.</span>
+                    <span data-lang="es">Se le proporcionara un estado de cuenta para solicitar este credito una vez al ano.</span>
+                </p>
+            </div>
+
+            <!-- Payment -->
+            <div>
+                <h3 style="font-size:1.1rem; font-weight:800; color:var(--teal-dark); margin-bottom:0.85rem; padding-bottom:0.5rem; border-bottom:2px solid var(--teal-light);">
+                    <span data-lang="en" class="active">Payment</span>
+                    <span data-lang="fr">Paiement</span>
+                    <span data-lang="es">Pago</span>
+                </h3>
+                <p style="font-size:0.925rem; line-height:1.75; color:#444;">
+                    <span data-lang="en" class="active">The payment for our services is made by <strong>pre-authorized direct debit</strong>. The payment is debited by our accounting department the week following the service, and only when the service has been received. Service cancellations made within a pre-specified period of time are not charged.</span>
+                    <span data-lang="fr">Le paiement de nos services s'effectue par <strong>prélèvement automatique préautorisé</strong>. Le paiement est prélevé par notre service comptable la semaine suivant le service, et uniquement lorsque le service a été rendu. Les annulations de service effectuées dans un délai prédéfini ne sont pas facturées.</span>
+                    <span data-lang="es">El pago de nuestros servicios se realiza mediante <strong>debito directo preautorizado</strong>. El pago es debitado por nuestro departamento de contabilidad la semana siguiente al servicio, y solo cuando el servicio ha sido recibido. Las cancelaciones realizadas dentro del periodo preestablecido no son cobradas.</span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FINANCIAL ASSISTANCE BANNER -->
+<section style="background:#f0f4f6; padding:2.25rem 0; margin-top:3rem;">
+    <div class="wrap" style="max-width:860px;">
+        <div style="display:flex; align-items:center; gap:2rem;">
+            <div style="flex-shrink:0; width:70px; height:70px; background:var(--teal-light); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="var(--teal-dark)" opacity="0.3"/>
+                    <path d="M4 17h16v2H4z" fill="var(--teal-dark)" opacity="0.5"/>
+                    <path d="M8 13l4-4 4 4" stroke="var(--teal-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+            </div>
+            <div style="flex:1;">
+                <h3 style="font-size:1.1rem; font-weight:800; color:var(--teal-dark); margin-bottom:0.35rem;">
+                    <span data-lang="en" class="active">Domestic help that is accessible and supportive</span>
+                    <span data-lang="fr">Aide domestique accessible et solidaire</span>
+                    <span data-lang="es">Ayuda domestica accesible y solidaria</span>
+                </h3>
+                <p style="font-size:0.9rem; color:#555; line-height:1.6; margin-bottom:0.85rem;">
+                    <span data-lang="en" class="active">With Vita Soin, financial assistance is available for home services support. Get informed!</span>
+                    <span data-lang="fr">Avec Vita Soin, une aide financière est disponible pour le soutien aux services à domicile. Informez-vous!</span>
+                    <span data-lang="es">Con Vita Soin, hay asistencia financiera disponible para el apoyo de servicios en el hogar. Informese!</span>
+                </p>
+                <a href="#" onclick="openDocModal('financeModal'); return false;" style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--teal-dark); color:var(--white); font-family:'Figtree',sans-serif; font-size:0.9rem; font-weight:700; padding:0.65rem 1.4rem; border-radius:50px; text-decoration:none; transition:background 0.18s ease, transform 0.15s ease;" onmouseover="this.style.background='var(--teal)'; this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--teal-dark)'; this.style.transform='none'">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    <span data-lang="en" class="active">Financial assistance</span>
+                    <span data-lang="fr">Aide financière</span>
+                    <span data-lang="es">Asistencia financiera</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="wrap">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo-box">
+                    <img src="Brand_Assets/LOGO.png" alt="VITA Services a Domicile">
+                </div>
+                <p>
+                    <span data-lang="en" class="active">Providing compassionate, expert home care services to families across the region since 2023.</span>
+                    <span data-lang="fr">Fournissant des soins à domicile bienveillants et experts aux familles de la région depuis 2023.</span>
+                    <span data-lang="es">Brindando servicios de atencion domiciliaria compasivos y expertos a familias en toda la region desde 2023.</span>
+                </p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">ig</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+            <div>
+                <p class="foot-col-title">
+                    <span data-lang="en" class="active">Services</span>
+                    <span data-lang="fr">Services</span>
+                    <span data-lang="es">Servicios</span>
+                </p>
+                <ul class="foot-links">
+                    <li><a href="#">
+                        <span data-lang="en" class="active">Personal Care</span>
+                        <span data-lang="fr">Soins personnels</span>
+                        <span data-lang="es">Cuidado personal</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span data-lang="en" class="active">Skilled Nursing</span>
+                        <span data-lang="fr">Soins infirmiers</span>
+                        <span data-lang="es">Enfermeria especializada</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span data-lang="en" class="active">Companionship</span>
+                        <span data-lang="fr">Accompagnement</span>
+                        <span data-lang="es">Compania</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span data-lang="en" class="active">Home Care Services</span>
+                        <span data-lang="fr">Services d'aide à domicile</span>
+                        <span data-lang="es">Servicios de atencion en el hogar</span>
+                    </a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="foot-col-title">
+                    <span data-lang="en" class="active">Company</span>
+                    <span data-lang="fr">Entreprise</span>
+                    <span data-lang="es">Empresa</span>
+                </p>
+                <ul class="foot-links">
+                    <li><a href="#">
+                        <span data-lang="en" class="active">About Us</span>
+                        <span data-lang="fr">À propos</span>
+                        <span data-lang="es">Nosotros</span>
+                    </a></li>
+                    <li><a href="#patient-voices">
+                        <span data-lang="en" class="active">Patient Stories</span>
+                        <span data-lang="fr">Témoignages</span>
+                        <span data-lang="es">Historias</span>
+                    </a></li>
+                    <li><a href="#careers">
+                        <span data-lang="en" class="active">Careers</span>
+                        <span data-lang="fr">Carrières</span>
+                        <span data-lang="es">Carreras</span>
+                    </a></li>
+                    <li><a href="#">
+                        <span data-lang="en" class="active">Contact</span>
+                        <span data-lang="fr">Contact</span>
+                        <span data-lang="es">Contacto</span>
+                    </a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="foot-col-title">
+                    <span data-lang="en" class="active">Contact</span>
+                    <span data-lang="fr">Contact</span>
+                    <span data-lang="es">Contacto</span>
+                </p>
+                <ul class="foot-links">
+                    <li><a href="tel:5149176167">514-917-6167</a></li>
+                    <li><a href="mailto:lorena@vitasoinetservices.com">lorena@vitasoinetservices.com</a></li>
+                    <li style="color:rgba(255,255,255,0.4); font-size:0.875rem;">
+                        Montreal, Québec, Canada
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                &copy; 2026 VITA Services a Domicile.
+                <span data-lang="en" class="active">All rights reserved.</span>
+                <span data-lang="fr">Tous droits reserves.</span>
+                <span data-lang="es">Todos los derechos reservados.</span>
+            </p>
+            <div>
+                <a href="#" onclick="openDocModal('privacyModal'); return false;">
+                    <span data-lang="en" class="active">Privacy Policy</span>
+                    <span data-lang="fr">Politique de confidentialité</span>
+                    <span data-lang="es">Politica de privacidad</span>
+                </a>
+                <a href="#" onclick="openDocModal('safetyModal'); return false;">
+                    <span data-lang="en" class="active">Client Safety</span>
+                    <span data-lang="fr">Sécurité des clients</span>
+                    <span data-lang="es">Seguridad del cliente</span>
+                </a>
+                <a href="#" onclick="openDocModal('termsModal'); return false;">
+                    <span data-lang="en" class="active">Terms of Service</span>
+                    <span data-lang="fr">Conditions d'utilisation</span>
+                    <span data-lang="es">Terminos de servicio</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ---- HERO VIDEO PLAYLIST ----
+    (function() {
+        var heroVideos = [
+            'Marche de Louest_walker_video.mp4',
+            'Daughter_mother_is in good hands.mp4'
+        ];
+        var heroIdx = 0;
+        var heroVid = document.getElementById('heroVideo');
+        if (heroVid) {
+            heroVid.addEventListener('ended', function() {
+                heroIdx = (heroIdx + 1) % heroVideos.length;
+                heroVid.src = heroVideos[heroIdx];
+                heroVid.load();
+                heroVid.play();
+            });
+        }
+    })();
+
+    // ---- HEAL SECTION VIDEO PLAYLIST ----
+    (function() {
+        var healVideos = [
+            'Healing at home wheel chair.mp4',
+            'Helping hand.mp4'
+        ];
+        var healIdx = 0;
+        var healVid = document.getElementById('healVideo');
+        if (healVid) {
+            healVid.addEventListener('ended', function() {
+                healIdx = (healIdx + 1) % healVideos.length;
+                healVid.src = healVideos[healIdx];
+                healVid.load();
+                healVid.play();
+            });
+        }
+    })();
+
+    // ---- LANGUAGE SWITCHER ----
+    function setLang(lang) {
+        document.documentElement.setAttribute('data-current-lang', lang);
+        // Toggle all [data-lang] elements
+        document.querySelectorAll('[data-lang]').forEach(el => {
+            if (el.getAttribute('data-lang') === lang) {
+                el.classList.add('active');
+            } else {
+                el.classList.remove('active');
+            }
+        });
+        // Toggle lang buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+        });
+        document.documentElement.lang = lang;
+    }
+
+    // ---- STICKY NAV SHADOW ----
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('mainNav');
+        nav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // ---- REVEAL ON SCROLL ----
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, entry.target.dataset.delay || 0);
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+        revealObserver.observe(el);
+    });
+
+    // Stagger siblings in same grid
+    document.querySelectorAll('.svc-grid, .vals-grid, .testi-grid, .cov-stats, .perks-grid').forEach(grid => {
+        grid.querySelectorAll('.reveal, .svc-card, .val-card, .testi-card, .cov-stat, .perk').forEach((el, i) => {
+            el.style.transitionDelay = (i * 0.08) + 's';
+        });
+    });
+
+    // Init
+    setLang('en');
+
+    // ---- CARE REQUEST MODAL ----
+    function openCareModal() {
+        document.getElementById('careModal').classList.add('open');
+        document.getElementById('modalForm').style.display = 'block';
+        document.getElementById('modalSuccess').style.display = 'none';
+        document.getElementById('careForm').reset();
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => document.getElementById('mFirst').focus(), 100);
+    }
+
+    function closeCareModal() {
+        document.getElementById('careModal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function submitCareForm(e) {
+        e.preventDefault();
+        const first    = document.getElementById('mFirst').value.trim();
+        const last     = document.getElementById('mLast').value.trim();
+        const email    = document.getElementById('mEmail').value.trim();
+        const phone    = document.getElementById('mPhone').value.trim();
+        const bestTime = document.getElementById('mBestTime').value;
+        const msg      = document.getElementById('mMsg').value.trim();
+
+        if (!first || !last || !email || !phone || !bestTime) return;
+
+        const subject = encodeURIComponent('New Care Request - VITA Soin et Services');
+        const body = encodeURIComponent(
+            'New Care Request\n' +
+            '==================================\n\n' +
+            'First Name:          ' + first + '\n' +
+            'Last Name:           ' + last + '\n' +
+            'Email:               ' + email + '\n' +
+            'Phone:               ' + phone + '\n' +
+            'Best Time to Reach:  ' + bestTime + '\n\n' +
+            'Special Remarks:\n' + (msg || 'None')
+        );
+
+        window.location.href = 'mailto:Lorena@vitasoinetservices.com?subject=' + subject + '&body=' + body;
+        document.getElementById('modalForm').style.display = 'none';
+        document.getElementById('modalSuccess').style.display = 'block';
+    }
+
+    // Close on backdrop click
+    document.getElementById('careModal').addEventListener('click', function(e) {
+        if (e.target === this) closeCareModal();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('careModal').classList.contains('open')) {
+            closeCareModal();
+        }
+        if (e.key === 'Escape') {
+            ['financeModal','privacyModal','safetyModal','termsModal'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el && el.classList.contains('open')) closeDocModal(id);
+            });
+        }
+    });
+
+    // ---- DOCUMENT MODALS (Privacy, Safety, Terms) ----
+    function openDocModal(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        var body = el.querySelector('.doc-modal-body');
+        if (body) body.scrollTop = 0;
+    }
+
+    function closeDocModal(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.classList.remove('open');
+        var anyOpen = ['careModal','privacyModal','safetyModal','termsModal'].some(function(mid) {
+            var m = document.getElementById(mid);
+            return m && m.classList.contains('open');
+        });
+        if (!anyOpen) document.body.style.overflow = '';
+    }
+
+    // Backdrop click to close document modals
+    ['financeModal','privacyModal','safetyModal','termsModal'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('click', function(e) {
+            if (e.target === this) closeDocModal(id);
+        });
+    });
+
+    // ---- JOB APPLICATION MODAL ----
+    function openJobModal() {
+        document.getElementById('jobModal').classList.add('open');
+        document.getElementById('jobModalForm').style.display = 'block';
+        document.getElementById('jobModalSuccess').style.display = 'none';
+        document.getElementById('jobForm').reset();
+        document.getElementById('jCVName').innerHTML = '<span data-lang="en" class="active">No file selected</span><span data-lang="fr">Aucun fichier sélectionné</span><span data-lang="es">Ningun archivo seleccionado</span>';
+        document.getElementById('jCVName').classList.remove('has-file');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function() { document.getElementById('jFirst').focus(); }, 100);
+        setLang(document.documentElement.getAttribute('data-current-lang') || 'en');
+    }
+
+    function closeJobModal() {
+        document.getElementById('jobModal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function updateFileName(input) {
+        var nameEl = document.getElementById('jCVName');
+        if (input.files && input.files[0]) {
+            nameEl.textContent = input.files[0].name;
+            nameEl.classList.add('has-file');
+        } else {
+            nameEl.innerHTML = '<span data-lang="en" class="active">No file selected</span><span data-lang="fr">Aucun fichier sélectionné</span><span data-lang="es">Ningun archivo seleccionado</span>';
+            nameEl.classList.remove('has-file');
+            setLang(document.documentElement.getAttribute('data-current-lang') || 'en');
+        }
+    }
+
+    function submitJobForm(e) {
+        e.preventDefault();
+        var first      = document.getElementById('jFirst').value.trim();
+        var last       = document.getElementById('jLast').value.trim();
+        var email      = document.getElementById('jEmail').value.trim();
+        var phone      = document.getElementById('jPhone').value.trim();
+        var bestTime   = document.getElementById('jBestTime').value;
+        var experience = document.getElementById('jExperience').value;
+        var location   = document.getElementById('jLocation').value.trim();
+        var cvInput    = document.getElementById('jCV');
+        var cvName     = (cvInput.files && cvInput.files[0]) ? cvInput.files[0].name : 'Not attached';
+
+        if (!first || !last || !email || !phone || !bestTime || !experience || !location) return;
+
+        var subject = encodeURIComponent('Job Application - VITA Soin et Services');
+        var body = encodeURIComponent(
+            'New Job Application\n' +
+            '==================================\n\n' +
+            'First Name:          ' + first + '\n' +
+            'Last Name:           ' + last + '\n' +
+            'Email:               ' + email + '\n' +
+            'Phone:               ' + phone + '\n' +
+            'Best Time to Reach:  ' + bestTime + '\n' +
+            'Years of Experience: ' + experience + '\n' +
+            'Location (City/Region): ' + location + '\n\n' +
+            'CV / Resume:         ' + cvName + '\n' +
+            (cvName !== 'Not attached' ? '>>> Please remember to attach the CV file before sending this email. <<<\n' : '') +
+            '\n---\nSent via vitasoinetservices.ca careers form'
+        );
+
+        window.location.href = 'mailto:lorena@vitasoinetservices.com?subject=' + subject + '&body=' + body;
+        document.getElementById('jobModalForm').style.display = 'none';
+        document.getElementById('jobModalSuccess').style.display = 'block';
+    }
+
+    // Backdrop + Escape for job modal
+    document.getElementById('jobModal').addEventListener('click', function(e) {
+        if (e.target === this) closeJobModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('jobModal').classList.contains('open')) {
+            closeJobModal();
+        }
+    });
+
+    // ---- COOKIE CONSENT (Québec Law 25 / PIPEDA) ----
+    function setCookieConsent(level) {
+        try {
+            localStorage.setItem('vita_cookie_consent', level);
+            localStorage.setItem('vita_cookie_date', new Date().toISOString());
+        } catch(e) {}
+        const banner = document.getElementById('cookieBanner');
+        banner.classList.remove('show');
+        setTimeout(() => { banner.style.display = 'none'; }, 500);
+    }
+
+    (function initCookieBanner() {
+        try {
+            const consent = localStorage.getItem('vita_cookie_consent');
+            if (consent) return;
+        } catch(e) {}
+        const banner = document.getElementById('cookieBanner');
+        // Delay so page renders visibly first
+        setTimeout(() => banner.classList.add('show'), 900);
+    })();
+</script>
+</body>
+</html>

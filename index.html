@@ -402,6 +402,7 @@
         .hero-media {
             position: relative;
             overflow: hidden;
+            height: 560px;
         }
 
         .hero-media img,
@@ -857,7 +858,7 @@
 
         .join-inner {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 0.7fr 1.3fr;
             gap: 5rem;
             align-items: center;
         }
@@ -901,8 +902,7 @@
         }
         .join-img-wrap img {
             width: 100%;
-            height: 380px;
-            object-fit: cover;
+            height: auto;
             display: block;
         }
 
@@ -1595,7 +1595,7 @@
     </div>
     <div class="hero-media">
         <video id="heroVideo" autoplay muted playsinline preload="auto">
-            <source src="Marche de Louest_walker_video.mp4" type="video/mp4">
+            <source src="Join our team.mp4" type="video/mp4">
         </video>
         <div class="hero-stat">
             <div class="hero-stat-item">
@@ -1693,7 +1693,7 @@
         <div class="svc-grid">
 
             <div class="svc-card reveal">
-                <img class="svc-img" src="https://placehold.co/420x200/d3e1e9/04202a?text=Personal+Care" alt="Personal Care">
+                <img class="svc-img" src="Caregiver_Alina.png" alt="Personal Care">
                 <div class="svc-body">
                     <h3 class="svc-title">
                         <span data-lang="en" class="active">Personal Care</span>
@@ -1715,7 +1715,7 @@
             </div>
 
             <div class="svc-card reveal">
-                <img class="svc-img" src="https://placehold.co/420x200/7db7d8/ffffff?text=Skilled+Nursing" alt="Skilled Nursing">
+                <img class="svc-img" src="Skilled Nurse_Maria.png" alt="Skilled Nursing">
                 <div class="svc-body">
                     <h3 class="svc-title">
                         <span data-lang="en" class="active">Skilled Nursing</span>
@@ -1737,7 +1737,7 @@
             </div>
 
             <div class="svc-card reveal">
-                <img class="svc-img" src="https://placehold.co/420x200/5cbf3a/ffffff?text=Companionship" alt="Companionship">
+                <img class="svc-img" src="Companionship_Cynthia.png" alt="Companionship">
                 <div class="svc-body">
                     <h3 class="svc-title">
                         <span data-lang="en" class="active">Companionship</span>
@@ -1759,7 +1759,7 @@
             </div>
 
             <div class="svc-card reveal">
-                <img class="svc-img" src="https://placehold.co/420x200/04202a/d3e1e9?text=Home+Care+Services" alt="Home Care Services">
+                <img class="svc-img" src="Homecare_Services_Mona.png" alt="Home Care Services">
                 <div class="svc-body">
                     <h3 class="svc-title">
                         <span data-lang="en" class="active">Home Care Services</span>
@@ -1871,7 +1871,7 @@
     <div class="wrap">
         <div class="story-inner">
             <div class="story-img-wrap reveal">
-                <img src="Marie_tremblay.jpg" alt="Lorena Ybarra, founder of Vita Soins et Services" width="900" height="1613" loading="lazy">
+                <img src="Brand_Assets/Lorena_Founder.png" alt="Lorena Ybarra, founder of Vita Soins et Services" width="900" height="1613" loading="lazy">
             </div>
             <div class="reveal">
                 <p class="story-tag">
@@ -2188,9 +2188,7 @@
                 </a>
             </div>
             <div class="join-img-wrap reveal">
-                <video id="joinVideo" class="lazy-video" muted loop playsinline preload="none" style="width:100%; height:380px; object-fit:cover; display:block;">
-                    <source data-src="Join our team.mp4" type="video/mp4">
-                </video>
+                <img src="VITA_meet_the_team.png" alt="Meet the VITA team">
             </div>
         </div>
     </div>
@@ -3273,17 +3271,24 @@
     // ---- HERO VIDEO PLAYLIST ----
     (function() {
         var heroVideos = [
+            'Join our team.mp4',
             'Marche de Louest_walker_video.mp4',
             'Daughter_mother_is in good hands.mp4'
         ];
         var heroIdx = 0;
         var heroVid = document.getElementById('heroVideo');
         if (heroVid) {
+            // JS fallback: mobile browsers often ignore the autoplay attribute
+            heroVid.play().catch(function() {});
+
             heroVid.addEventListener('ended', function() {
                 heroIdx = (heroIdx + 1) % heroVideos.length;
                 heroVid.src = heroVideos[heroIdx];
                 heroVid.load();
-                heroVid.play();
+                // Wait for data before playing — fixes mobile race condition
+                heroVid.addEventListener('canplay', function() {
+                    heroVid.play().catch(function() {});
+                }, { once: true });
             });
         }
     })();
@@ -3301,7 +3306,9 @@
                 healIdx = (healIdx + 1) % healVideos.length;
                 healVid.src = healVideos[healIdx];
                 healVid.load();
-                healVid.play();
+                healVid.addEventListener('canplay', function() {
+                    healVid.play().catch(function() {});
+                }, { once: true });
             });
         }
     })();
@@ -3356,7 +3363,10 @@
                     source.removeAttribute('data-src');
                 });
                 video.load();
-                video.play().catch(() => {});
+                // Wait for canplay before calling play() — fixes mobile race condition
+                video.addEventListener('canplay', function() {
+                    video.play().catch(function() {});
+                }, { once: true });
                 videoObserver.unobserve(video);
             }
         });
